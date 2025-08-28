@@ -7,8 +7,10 @@ import { trackThemeChange } from '@/components/analytics'
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     // Get theme from localStorage or system preference
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark'
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
@@ -23,18 +25,8 @@ export function ThemeToggle() {
     
     if (newTheme === 'dark') {
       root.classList.add('dark')
-      root.style.setProperty('--background', '#0a0a0a')
-      root.style.setProperty('--foreground', '#ffffff')
-      root.style.setProperty('--muted', '#1a1a1a')
-      root.style.setProperty('--muted-foreground', '#a1a1aa')
-      root.style.setProperty('--border', '#27272a')
     } else {
       root.classList.remove('dark')
-      root.style.setProperty('--background', '#ffffff')
-      root.style.setProperty('--foreground', '#0a0a0a')
-      root.style.setProperty('--muted', '#f5f5f5')
-      root.style.setProperty('--muted-foreground', '#71717a')
-      root.style.setProperty('--border', '#e4e4e7')
     }
   }
 
@@ -44,6 +36,15 @@ export function ThemeToggle() {
     localStorage.setItem('theme', newTheme)
     applyTheme(newTheme)
     trackThemeChange(newTheme)
+  }
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <div className="relative p-2 rounded-lg bg-muted">
+        <div className="w-5 h-5" />
+      </div>
+    )
   }
 
   return (
