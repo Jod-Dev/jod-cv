@@ -1,43 +1,12 @@
 "use client"
 
-import { useCallback } from 'react'
-import { useSpring, animated } from 'react-spring'
-import { useGesture } from '@use-gesture/react'
+import { motion } from 'framer-motion'
 
 export function InteractiveParticles() {
-  const [spring, api] = useSpring(() => ({
-    x: 0,
-    y: 0,
-    scale: 1,
-    config: { mass: 1, tension: 300, friction: 30 }
-  }))
-
-  const bind = useGesture({
-    onMove: ({ xy: [x, y] }) => {
-      const centerX = window.innerWidth / 2
-      const centerY = window.innerHeight / 2
-      const deltaX = (x - centerX) / centerX
-      const deltaY = (y - centerY) / centerY
-      
-      api.start({
-        x: deltaX * 50,
-        y: deltaY * 50,
-        scale: 1.1
-      })
-    },
-    onHover: ({ hovering }) => {
-      api.start({
-        scale: hovering ? 1.2 : 1
-      })
-    }
-  })
-
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <animated.div
-        {...bind()}
+      <div
         style={{
-          ...spring,
           position: 'absolute',
           top: '50%',
           left: '50%',
@@ -49,21 +18,28 @@ export function InteractiveParticles() {
       >
         {/* Floating particles */}
         {Array.from({ length: 50 }).map((_, i) => (
-          <div
+          <motion.div
             key={i}
             className="absolute w-1 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-60"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`
+            }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.6, 1, 0.6]
+            }}
+            transition={{
+              duration: 3 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 2
             }}
           />
         ))}
         
         {/* Glowing orbs */}
         {Array.from({ length: 8 }).map((_, i) => (
-          <div
+          <motion.div
             key={`orb-${i}`}
             className="absolute rounded-full blur-sm"
             style={{
@@ -72,12 +48,19 @@ export function InteractiveParticles() {
               width: `${100 + Math.random() * 200}px`,
               height: `${100 + Math.random() * 200}px`,
               background: `radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, rgba(251, 191, 36, 0.1) 50%, transparent 100%)`,
-              animation: `pulse ${4 + Math.random() * 3}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`
+            }}
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3]
+            }}
+            transition={{
+              duration: 4 + Math.random() * 3,
+              repeat: Infinity,
+              delay: Math.random() * 2
             }}
           />
         ))}
-      </animated.div>
+      </div>
     </div>
   )
 }

@@ -1,10 +1,11 @@
 [build]
-command = "docker build -t jod-portfolio . && docker create --name temp-build jod-portfolio && docker cp temp-build:/app/.next/standalone ./out && docker cp temp-build:/app/.next/static ./out/.next/static && docker cp temp-build:/app/public ./out/public && docker rm temp-build"
+command = "npm install --legacy-peer-deps && npm run build:local"
 publish = "out"
 
 [build.environment]
 NODE_VERSION = "18"
 NPM_VERSION = "10"
+NPM_FLAGS = "--legacy-peer-deps"
 
 [[redirects]]
 from = "/*"
