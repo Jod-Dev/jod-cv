@@ -9,6 +9,7 @@ import { resumeData } from '@/lib/data'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jod-cv.pages.dev'),
   title: `${resumeData.basics.name} - ${resumeData.basics.label}`,
   description: resumeData.basics.summary,
   keywords: [
