@@ -2,8 +2,22 @@
 
 import { resumeData } from '@/lib/data'
 import { trackCvDownload } from '@/components/analytics'
+import { useLanguage } from '@/contexts/language-context'
 
 export async function generateCVPDF() {
+  // Get current language context
+  const { currentLanguage, messages } = useLanguage()
+  
+  // Get translations for PDF sections
+  const t = (key: string, fallback: string) => {
+    const keys = key.split('.')
+    let value = messages
+    for (const k of keys) {
+      value = value?.[k]
+      if (!value) break
+    }
+    return value || fallback
+  }
   try {
     // Dynamic import to avoid SSR issues
     const jsPDF = (await import('jspdf')).default
@@ -32,7 +46,7 @@ export async function generateCVPDF() {
     // Summary
     doc.setFontSize(12)
     doc.setFont('helvetica', 'bold')
-    doc.text('Professional Summary', 20, 90)
+    doc.text(t('about.professionalSummary', 'Professional Summary'), 20, 90)
     
     doc.setFontSize(10)
     doc.setFont('helvetica', 'normal')
@@ -43,7 +57,7 @@ export async function generateCVPDF() {
     let yPosition = 120
     doc.setFontSize(12)
     doc.setFont('helvetica', 'bold')
-    doc.text('Work Experience', 20, yPosition)
+    doc.text(t('experience.title', 'Work Experience'), 20, yPosition)
     yPosition += 10
     
     resumeData.work.forEach((job, index) => {
@@ -60,7 +74,7 @@ export async function generateCVPDF() {
       doc.setFont('helvetica', 'normal')
       doc.text(job.name, 20, yPosition + 5)
       
-      const dateText = `${job.startDate} - ${job.endDate || 'Present'}`
+      const dateText = `${job.startDate} - ${job.endDate || t('experience.current', 'Present')}`
       doc.text(dateText, 20, yPosition + 10)
       
       const descriptionLines = doc.splitTextToSize(job.summary, 170)
@@ -71,7 +85,7 @@ export async function generateCVPDF() {
       // Key responsibilities
       if (job.highlights && job.highlights.length > 0) {
         doc.setFontSize(9)
-        doc.text('Key Responsibilities:', 20, yPosition)
+        doc.text(t('experience.keyResponsibilities', 'Key Responsibilities:'), 20, yPosition)
         yPosition += 5
         
         job.highlights.forEach(highlight => {
@@ -85,7 +99,7 @@ export async function generateCVPDF() {
       // Technologies
       if (job.technologies && job.technologies.length > 0) {
         doc.setFontSize(9)
-        doc.text(`Technologies: ${job.technologies.join(', ')}`, 20, yPosition)
+        doc.text(`${t('experience.technologies', 'Technologies')}: ${job.technologies.join(', ')}`, 20, yPosition)
         yPosition += 8
       }
       
@@ -100,7 +114,7 @@ export async function generateCVPDF() {
     
     doc.setFontSize(12)
     doc.setFont('helvetica', 'bold')
-    doc.text('Education', 20, yPosition)
+    doc.text(t('education.title', 'Education'), 20, yPosition)
     yPosition += 10
     
     resumeData.education.forEach(edu => {
@@ -131,7 +145,7 @@ export async function generateCVPDF() {
     
     doc.setFontSize(12)
     doc.setFont('helvetica', 'bold')
-    doc.text('Skills & Technologies', 20, yPosition)
+    doc.text(t('skills.title', 'Skills & Technologies'), 20, yPosition)
     yPosition += 10
     
     resumeData.skills.forEach(skill => {
@@ -159,7 +173,7 @@ export async function generateCVPDF() {
     
     doc.setFontSize(12)
     doc.setFont('helvetica', 'bold')
-    doc.text('Languages', 20, yPosition)
+    doc.text(t('about.languages', 'Languages'), 20, yPosition)
     yPosition += 10
     
     resumeData.languages.forEach(lang => {
@@ -178,7 +192,7 @@ export async function generateCVPDF() {
       
       doc.setFontSize(12)
       doc.setFont('helvetica', 'bold')
-      doc.text('Awards & Recognition', 20, yPosition)
+      doc.text(t('awards.title', 'Awards & Recognition'), 20, yPosition)
       yPosition += 10
       
       resumeData.awards.forEach(award => {

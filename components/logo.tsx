@@ -26,57 +26,38 @@ export function Logo({ size = 'md', showText = false, className = '', onClick }:
 
   return (
     <motion.div
-      className={`flex items-center gap-3 ${className}`}
+      className={`flex items-center justify-center ${className}`}
       onClick={onClick}
       whileHover={onClick ? { scale: 1.05 } : {}}
       whileTap={onClick ? { scale: 0.95 } : {}}
       style={{ cursor: onClick ? 'pointer' : 'default' }}
     >
-      {/* SVG Logo - Simple Flat Design */}
-      <div className={`${sizeClasses[size]} flex-shrink-0`}>
+      {/* SVG Logo - Just Initials */}
+      <div className={`${sizeClasses[size]} flex-shrink-0 flex items-center justify-center`}>
         <svg
           viewBox="0 0 100 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full"
         >
-          {/* Simple Background */}
-          <rect
-            width="100"
-            height="100"
-            rx="20"
-            fill="hsl(var(--primary) / 0.1)"
-            stroke="hsl(var(--primary) / 0.3)"
-            strokeWidth="2"
-          />
-          
-          {/* Letter J - Simple and Clean */}
+          {/* Letter J */}
           <path
             d="M25 25 L25 65 Q25 75 35 75 L45 75 Q55 75 55 65 L55 60"
             stroke="hsl(var(--primary))"
-            strokeWidth="4"
+            strokeWidth="6"
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
           />
           
-          {/* Letter L - Simple and Clean */}
+          {/* Letter L */}
           <path
             d="M65 25 L65 75 L70 75"
             stroke="hsl(var(--primary))"
-            strokeWidth="4"
+            strokeWidth="6"
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
-          />
-          
-          {/* Simple Accent Dot */}
-          <circle
-            cx="30"
-            cy="30"
-            r="2"
-            fill="hsl(var(--primary))"
-            opacity="0.6"
           />
         </svg>
       </div>
