@@ -68,8 +68,8 @@ Este proyecto está configurado para funcionar correctamente en Cloudflare Pages
 # Build local
 npm run build
 
-# Build para Cloudflare
-npm run build:local
+# Build para Cloudflare (copia archivos al directorio raíz)
+npm run build:cloudflare
 ```
 
 ### Verificación
@@ -94,8 +94,8 @@ Si sigues viendo "Page Not Found":
 1. Ve a tu proyecto en Cloudflare Pages
 2. En la pestaña "Settings" > "Builds & deployments"
 3. Asegúrate de que:
-   - Build command: `npm run build`
-   - Build output directory: `out`
+   - Build command: `npm run build:cloudflare`
+   - Build output directory: `.` (directorio raíz)
    - Node.js version: 18
 
 ### Notas Importantes
