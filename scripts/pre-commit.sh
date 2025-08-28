@@ -64,9 +64,6 @@ fix_wrangler_toml() {
 name = "jod-cv"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "out"
-
-[build]
-command = "npm run build:cloudflare"
 EOF
     success "Fixed wrangler.toml"
 }

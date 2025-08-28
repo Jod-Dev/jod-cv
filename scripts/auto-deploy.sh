@@ -99,6 +99,19 @@ EOF
     fi
 }
 
+# Function to fix wrangler.toml
+fix_wrangler_toml() {
+    log "🔧 Checking and fixing wrangler.toml..."
+    
+    # Create the correct wrangler.toml
+    cat > wrangler.toml << 'EOF'
+name = "jod-cv"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "out"
+EOF
+    success "Fixed wrangler.toml - removed invalid build section"
+}
+
 # Function to build and deploy
 build_and_deploy() {
     log "🏗️ Building project..."
@@ -137,6 +150,7 @@ retry_deployment() {
         # Fix common issues
         fix_routes_json
         fix_redirects
+        fix_wrangler_toml
         
         # Try to build and deploy
         if build_and_deploy; then

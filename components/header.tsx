@@ -51,7 +51,7 @@ export function Header() {
           <nav className="hidden lg:flex items-center gap-6">
             {/* Main Navigation */}
             <div className="flex items-center gap-6">
-              {navItems.slice(0, 3).map((item) => (
+              {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
