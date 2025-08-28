@@ -4,6 +4,16 @@ import { motion } from 'framer-motion'
 import { ExternalLink, Github, Code, Globe } from 'lucide-react'
 import { TranslatedH2, TranslatedP } from './translated-text'
 import { useTranslations } from '@/hooks/useTranslations'
+import { 
+  FlatSection, 
+  FlatCard, 
+  FlatHeading, 
+  FlatText, 
+  FlatBadge, 
+  FlatGrid,
+  FlatButton,
+  flatAnimations 
+} from './flat-design-system'
 
 interface Project {
   id: string

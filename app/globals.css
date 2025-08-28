@@ -4,48 +4,82 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    /* Light Mode - Mate Colors */
+    --background: 0 0% 98%; /* White smoke mate */
+    --foreground: 220 13% 18%; /* Dark charcoal mate */
+    --card: 0 0% 100%; /* Pure white mate */
+    --card-foreground: 220 13% 18%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
+    --popover-foreground: 220 13% 18%;
+    --primary: 220 13% 28%; /* Professional dark blue mate */
     --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    --secondary: 220 13% 94%; /* Light gray mate */
+    --secondary-foreground: 220 13% 18%;
+    --muted: 220 13% 96%; /* Very light gray mate */
+    --muted-foreground: 220 13% 45%; /* Medium gray mate */
+    --accent: 220 13% 92%; /* Subtle accent mate */
+    --accent-foreground: 220 13% 18%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
-    --radius: 0.5rem;
+    --border: 220 13% 88%; /* Light border mate */
+    --input: 220 13% 88%;
+    --ring: 220 13% 28%;
+    --radius: 0.75rem;
+    
+    /* Custom mate colors */
+    --mate-white: 0 0% 98%;
+    --mate-gray-50: 220 13% 98%;
+    --mate-gray-100: 220 13% 96%;
+    --mate-gray-200: 220 13% 92%;
+    --mate-gray-300: 220 13% 88%;
+    --mate-gray-400: 220 13% 75%;
+    --mate-gray-500: 220 13% 60%;
+    --mate-gray-600: 220 13% 45%;
+    --mate-gray-700: 220 13% 35%;
+    --mate-gray-800: 220 13% 25%;
+    --mate-gray-900: 220 13% 18%;
+    --mate-blue: 220 13% 28%;
+    --mate-blue-light: 220 13% 35%;
+    --mate-blue-dark: 220 13% 20%;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    /* Dark Mode - Modern Mate Colors */
+    --background: 220 13% 8%; /* Deep charcoal mate */
+    --foreground: 220 13% 95%; /* Off-white mate */
+    --card: 220 13% 12%; /* Dark card mate */
+    --card-foreground: 220 13% 95%;
+    --popover: 220 13% 12%;
+    --popover-foreground: 220 13% 95%;
+    --primary: 220 13% 75%; /* Light blue mate */
+    --primary-foreground: 220 13% 8%;
+    --secondary: 220 13% 15%; /* Dark secondary mate */
+    --secondary-foreground: 220 13% 95%;
+    --muted: 220 13% 18%; /* Muted dark mate */
+    --muted-foreground: 220 13% 65%; /* Light gray mate */
+    --accent: 220 13% 20%; /* Accent dark mate */
+    --accent-foreground: 220 13% 95%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 220 13% 95%;
+    --border: 220 13% 25%; /* Dark border mate */
+    --input: 220 13% 25%;
+    --ring: 220 13% 75%;
+    
+    /* Custom dark mate colors */
+    --mate-black: 220 13% 8%;
+    --mate-dark-50: 220 13% 12%;
+    --mate-dark-100: 220 13% 15%;
+    --mate-dark-200: 220 13% 18%;
+    --mate-dark-300: 220 13% 25%;
+    --mate-dark-400: 220 13% 35%;
+    --mate-dark-500: 220 13% 50%;
+    --mate-dark-600: 220 13% 65%;
+    --mate-dark-700: 220 13% 80%;
+    --mate-dark-800: 220 13% 90%;
+    --mate-dark-900: 220 13% 95%;
+    --mate-blue-light: 220 13% 75%;
+    --mate-blue: 220 13% 65%;
+    --mate-blue-dark: 220 13% 55%;
   }
 }
 
@@ -270,4 +304,126 @@ html {
 .gradient-border {
   border: 2px solid;
   animation: gradientBorder 3s linear infinite;
+}
+
+/* Custom mate color utilities */
+@layer utilities {
+  .bg-mate-white { background-color: hsl(var(--mate-white)); }
+  .bg-mate-gray-50 { background-color: hsl(var(--mate-gray-50)); }
+  .bg-mate-gray-100 { background-color: hsl(var(--mate-gray-100)); }
+  .bg-mate-gray-200 { background-color: hsl(var(--mate-gray-200)); }
+  .bg-mate-gray-300 { background-color: hsl(var(--mate-gray-300)); }
+  .bg-mate-gray-400 { background-color: hsl(var(--mate-gray-400)); }
+  .bg-mate-gray-500 { background-color: hsl(var(--mate-gray-500)); }
+  .bg-mate-gray-600 { background-color: hsl(var(--mate-gray-600)); }
+  .bg-mate-gray-700 { background-color: hsl(var(--mate-gray-700)); }
+  .bg-mate-gray-800 { background-color: hsl(var(--mate-gray-800)); }
+  .bg-mate-gray-900 { background-color: hsl(var(--mate-gray-900)); }
+  .bg-mate-blue { background-color: hsl(var(--mate-blue)); }
+  .bg-mate-blue-light { background-color: hsl(var(--mate-blue-light)); }
+  .bg-mate-blue-dark { background-color: hsl(var(--mate-blue-dark)); }
+  
+  .text-mate-white { color: hsl(var(--mate-white)); }
+  .text-mate-gray-50 { color: hsl(var(--mate-gray-50)); }
+  .text-mate-gray-100 { color: hsl(var(--mate-gray-100)); }
+  .text-mate-gray-200 { color: hsl(var(--mate-gray-200)); }
+  .text-mate-gray-300 { color: hsl(var(--mate-gray-300)); }
+  .text-mate-gray-400 { color: hsl(var(--mate-gray-400)); }
+  .text-mate-gray-500 { color: hsl(var(--mate-gray-500)); }
+  .text-mate-gray-600 { color: hsl(var(--mate-gray-600)); }
+  .text-mate-gray-700 { color: hsl(var(--mate-gray-700)); }
+  .text-mate-gray-800 { color: hsl(var(--mate-gray-800)); }
+  .text-mate-gray-900 { color: hsl(var(--mate-gray-900)); }
+  .text-mate-blue { color: hsl(var(--mate-blue)); }
+  .text-mate-blue-light { color: hsl(var(--mate-blue-light)); }
+  .text-mate-blue-dark { color: hsl(var(--mate-blue-dark)); }
+  
+  .border-mate-white { border-color: hsl(var(--mate-white)); }
+  .border-mate-gray-50 { border-color: hsl(var(--mate-gray-50)); }
+  .border-mate-gray-100 { border-color: hsl(var(--mate-gray-100)); }
+  .border-mate-gray-200 { border-color: hsl(var(--mate-gray-200)); }
+  .border-mate-gray-300 { border-color: hsl(var(--mate-gray-300)); }
+  .border-mate-gray-400 { border-color: hsl(var(--mate-gray-400)); }
+  .border-mate-gray-500 { border-color: hsl(var(--mate-gray-500)); }
+  .border-mate-gray-600 { border-color: hsl(var(--mate-gray-600)); }
+  .border-mate-gray-700 { border-color: hsl(var(--mate-gray-700)); }
+  .border-mate-gray-800 { border-color: hsl(var(--mate-gray-800)); }
+  .border-mate-gray-900 { border-color: hsl(var(--mate-gray-900)); }
+  .border-mate-blue { border-color: hsl(var(--mate-blue)); }
+  .border-mate-blue-light { border-color: hsl(var(--mate-blue-light)); }
+  .border-mate-blue-dark { border-color: hsl(var(--mate-blue-dark)); }
+}
+
+/* Mate design enhancements */
+.mate-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease-in-out;
+}
+
+.dark .mate-card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mate-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.dark .mate-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+.mate-button {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.mate-button:hover {
+  background: hsl(var(--primary) / 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.mate-button:active {
+  transform: translateY(0);
+}
+
+.mate-input {
+  background: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s ease-in-out;
+}
+
+.mate-input:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+}
+
+.mate-badge {
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.mate-badge:hover {
+  background: hsl(var(--secondary) / 0.8);
+  transform: scale(1.05);
 }

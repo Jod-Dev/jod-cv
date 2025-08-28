@@ -4,75 +4,104 @@ import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
 import { TranslatedH2, TranslatedText } from './translated-text'
 import { useTranslations } from '@/hooks/useTranslations'
+import { 
+  FlatSection, 
+  FlatCard, 
+  FlatHeading, 
+  FlatText, 
+  FlatBadge, 
+  FlatList,
+  FlatDivider,
+  flatAnimations 
+} from './flat-design-system'
 
 export function Experience() {
   const { t } = useTranslations()
   
   return (
-    <section id="experience" className="py-20">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <TranslatedH2 
-            translationKey="experience.title"
-            fallback="Work Experience"
-            className="text-4xl md:text-5xl font-bold mb-6 gradient-text"
-          />
-        </motion.div>
+    <FlatSection id="experience" background="none">
+      <motion.div
+        {...flatAnimations.fadeIn}
+        viewport={{ once: true }}
+        className="text-center mb-12"
+      >
+        <TranslatedH2 
+          translationKey="experience.title"
+          fallback="Work Experience"
+          className="mb-4"
+        />
+        <FlatText variant="muted" centered>
+          Professional journey and technical expertise
+        </FlatText>
+      </motion.div>
 
-        <div className="space-y-8">
-          {resumeData.work.map((job, index) => (
-            <motion.div
-              key={`${job.name}-${job.startDate}`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="bg-background border border-border rounded-lg p-6 hover:shadow-lg transition-shadow"
-            >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+      <FlatList spacing="lg">
+        {resumeData.work.map((job, index) => (
+          <motion.div
+            key={`${job.name}-${job.startDate}`}
+            {...flatAnimations.fadeIn}
+            transition={{ delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <FlatCard hover={false} className="relative">
+              {/* Header */}
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                 <div>
-                  <h3 className="text-xl font-semibold">{job.position}</h3>
-                  <p className="text-primary font-medium">{job.name}</p>
+                  <FlatHeading level={3} className="mb-1">
+                    {job.position}
+                  </FlatHeading>
+                  <FlatText variant="muted" className="font-medium">
+                    {job.name}
+                  </FlatText>
                 </div>
-                <div className="text-sm text-muted-foreground mt-2 md:mt-0">
-                  {job.startDate} - {job.endDate || t('experience.current', 'Present')}
+                <div className="mt-2 md:mt-0">
+                  <FlatBadge variant="secondary">
+                    {job.startDate} - {job.endDate || t('experience.current', 'Present')}
+                  </FlatBadge>
                 </div>
               </div>
               
-              <p className="text-muted-foreground mb-4">{job.summary}</p>
+              <FlatDivider className="mb-6" />
               
-              <div className="space-y-2">
-                <h4 className="font-medium">{t('experience.keyResponsibilities', 'Key Responsibilities:')}</h4>
-                <ul className="list-disc list-inside text-muted-foreground space-y-1">
+              {/* Summary */}
+              <FlatText variant="body" className="mb-6 leading-relaxed">
+                {job.summary}
+              </FlatText>
+              
+              {/* Responsibilities */}
+              <div className="mb-6">
+                <FlatText variant="caption" className="mb-3 font-semibold">
+                  {t('experience.keyResponsibilities', 'Key Responsibilities:')}
+                </FlatText>
+                <FlatList spacing="sm">
                   {job.highlights.map((highlight, i) => (
-                    <li key={i}>{highlight}</li>
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <FlatText variant="small" className="leading-relaxed">
+                        {highlight}
+                      </FlatText>
+                    </div>
                   ))}
-                </ul>
+                </FlatList>
               </div>
               
-              <div className="mt-4">
-                <h4 className="font-medium mb-2">{t('experience.technologies', 'Technologies:')}</h4>
+              {/* Technologies */}
+              <div>
+                <FlatText variant="caption" className="mb-3 font-semibold">
+                  {t('experience.technologies', 'Technologies:')}
+                </FlatText>
                 <div className="flex flex-wrap gap-2">
                   {job.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
-                    >
+                    <FlatBadge key={i} variant="primary">
                       {tech}
-                    </span>
+                    </FlatBadge>
                   ))}
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+            </FlatCard>
+          </motion.div>
+        ))}
+      </FlatList>
+    </FlatSection>
   )
 }
