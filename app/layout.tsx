@@ -7,6 +7,7 @@ import { ScrollProgress } from '@/components/scroll-progress'
 import { LanguageProvider } from '@/contexts/language-context'
 import { Analytics } from '@/components/analytics'
 import { PWAInstaller } from '@/components/pwa-installer'
+import { ScrollToTop } from '@/components/scroll-to-top'
 import { resumeData } from '@/lib/data'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -114,6 +115,7 @@ export default function RootLayout({
             {children}
             <Analytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
             <PWAInstaller />
+            <ScrollToTop />
           </LanguageProvider>
         </ThemeProvider>
       </body>

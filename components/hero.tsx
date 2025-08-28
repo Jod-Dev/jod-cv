@@ -119,14 +119,31 @@ export function Hero() {
         </motion.div>
 
         {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+        <motion.button
+          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-background/80 backdrop-blur-xl border border-border/50 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
+          whileHover={{ 
+            scale: 1.1,
+            y: -2,
+            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+          }}
+          whileTap={{ scale: 0.95 }}
         >
-          <ChevronDown className="w-6 h-6 text-muted-foreground animate-bounce" />
-        </motion.div>
+          <div className="relative w-full h-full flex items-center justify-center">
+            {/* 3D Background Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full" />
+            <div className="absolute inset-0 bg-gradient-to-tl from-background/80 to-background/40 rounded-full" />
+            
+            {/* Icon with 3D effect */}
+            <ChevronDown className="w-6 h-6 text-primary relative z-10 group-hover:text-primary/80 transition-colors animate-bounce" />
+            
+            {/* Subtle glow effect */}
+            <div className="absolute inset-0 bg-primary/5 rounded-full blur-sm group-hover:bg-primary/10 transition-colors" />
+          </div>
+        </motion.button>
       </div>
     </section>
   )

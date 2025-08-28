@@ -38,7 +38,7 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-background/80 backdrop-blur-md border-b border-border' 
+          ? 'mate-nav' 
           : 'bg-transparent'
       }`}
     >
@@ -137,17 +137,17 @@ export function Header() {
                onClick={() => setIsMobileMenuOpen(false)}
              />
              
-             {/* Side Panel with Glass Effect */}
-             <motion.div
-               className="fixed top-0 right-0 h-full w-80 bg-background/80 backdrop-blur-xl border-l border-border/50 lg:hidden z-50 shadow-2xl"
-               initial={{ x: '100%' }}
-               animate={{ x: 0 }}
-               exit={{ x: '100%' }}
-               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-             >
+                           {/* Side Panel with Glass Effect */}
+              <motion.div
+                className="fixed top-0 right-0 h-full w-80 mate-glass lg:hidden z-50"
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              >
               <div className="flex flex-col h-full">
                                  {/* Header */}
-                 <div className="flex items-center justify-between p-6 border-b border-border/50 bg-background/50 backdrop-blur-sm">
+                 <div className="flex items-center justify-between p-6 border-b border-border/50 mate-glass">
                    <h2 className="text-lg font-semibold text-foreground">Menu</h2>
                    <button
                      onClick={() => setIsMobileMenuOpen(false)}
@@ -158,7 +158,7 @@ export function Header() {
                  </div>
                 
                                  {/* Navigation */}
-                 <nav className="flex-1 p-6 bg-background/30 backdrop-blur-sm">
+                 <nav className="flex-1 p-6 mate-section">
                    <div className="space-y-6">
                     {/* Main Navigation */}
                     <div>

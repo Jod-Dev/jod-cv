@@ -354,26 +354,145 @@ html {
   .border-mate-blue-dark { border-color: hsl(var(--mate-blue-dark)); }
 }
 
-/* Mate design enhancements */
+/* Flat 3D Mate Design System */
 .mate-card {
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.1), 
+    0 1px 2px 0 rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+  position: relative;
+  overflow: hidden;
+}
+
+.mate-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mate-card:hover::before {
+  opacity: 1;
 }
 
 .dark .mate-card {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.3), 
+    0 1px 2px 0 rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
 }
 
 .mate-card:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transform: translateY(-1px);
+  box-shadow: 
+    0 8px 25px -5px rgba(0, 0, 0, 0.1), 
+    0 4px 10px -5px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  transform: translateY(-2px) scale(1.01);
 }
 
 .dark .mate-card:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  box-shadow: 
+    0 8px 25px -5px rgba(0, 0, 0, 0.4), 
+    0 4px 10px -5px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+/* 3D Button Effects */
+.mate-button {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  will-change: transform, background-color, box-shadow;
+  position: relative;
+  overflow: hidden;
+}
+
+.mate-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mate-button:hover::before {
+  opacity: 1;
+}
+
+.mate-button:hover {
+  background: hsl(var(--primary) / 0.9);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 4px 10px -5px rgba(0, 0, 0, 0.06);
+}
+
+.mate-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 3D Section Effects */
+.mate-section {
+  position: relative;
+  background: hsl(var(--background));
+  transition: all 0.3s ease;
+}
+
+.mate-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+  opacity: 0.3;
+}
+
+/* 3D Navigation Effects */
+.mate-nav {
+  background: hsl(var(--background) / 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid hsl(var(--border) / 0.3);
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* 3D Glass Effects */
+.mate-glass {
+  background: hsl(var(--background) / 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid hsl(var(--border) / 0.3);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.1),
+    0 4px 16px 0 rgba(0, 0, 0, 0.06);
+}
+
+.dark .mate-glass {
+  background: hsl(var(--background) / 0.7);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .mate-button {
