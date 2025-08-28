@@ -159,6 +159,8 @@
     "projectPreview": "Project Preview",
     "liveDemo": "Live Demo",
     "viewCode": "View Code",
+    "collaboration": "Interested in seeing more of my work or discussing a potential collaboration?",
+    "letsTalk": "Let's Talk",
     "portfolio": {
       "title": "Personal Portfolio",
       "description": "Modern, responsive portfolio built with Next.js, TypeScript, and Framer Motion. Features interactive animations, 3D effects, and optimal performance.",
@@ -192,6 +194,8 @@
     "emailPlaceholder": "your.email@example.com",
     "subjectPlaceholder": "What's this about?",
     "messagePlaceholder": "Tell me about your project or opportunity...",
+    "phone": "Phone",
+    "location": "Location",
     "form": {
       "name": "Name",
       "email": "Email",

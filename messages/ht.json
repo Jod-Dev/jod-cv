@@ -148,6 +148,13 @@
   },
   "projects": {
     "title": "Pwojè Enpòtan",
+    "subtitle": "Isit yo kèk nan pwojè yo ak sistèm yo mwen te travay sou yo. Chak youn reprezante yon defi inik ak yon opòtinite pou aprann.",
+    "featured": "Enpòtan",
+    "projectPreview": "Aperçu Pwojè",
+    "liveDemo": "Demo An Dirèk",
+    "viewCode": "Wè Kòd",
+    "collaboration": "Enterese pou wè plis nan travay mwen oswa diskite sou yon kolaborasyon potansyèl?",
+    "letsTalk": "Ann Pale",
     "portfolio": {
       "title": "Pòtfolyo Pèsonèl",
       "description": "Pòtfolyo modèn ak reponsif bati ak Next.js, TypeScript ak Framer Motion. Gen animasyon entèaktif, efè 3D ak pèfòmans optimal.",
@@ -174,6 +181,15 @@
   "contact": {
     "title": "Kontakte m",
     "subtitle": "Mwen toujou enterese nan nouvo opòtinite ak kolaborasyon. Pa ezite kontakte m!",
+    "contactInformation": "Enfòmasyon Kontak",
+    "letsConnect": "Ann Konekte",
+    "availableMessage": "Mwen kounye a disponib pou nouvo opòtinite epi mwen ta renmen tande nan men ou. Kit ou gen yon kesyon oswa ou jis vle di bonjou, m ap eseye pi byen mwen pou m reponn ou!",
+    "namePlaceholder": "Non ou",
+    "emailPlaceholder": "ou.email@egzanp.com",
+    "subjectPlaceholder": "Kisa sa ye?",
+    "messagePlaceholder": "Pale m sou pwojè ou oswa opòtinite...",
+    "phone": "Telefòn",
+    "location": "Kote",
     "form": {
       "name": "Non",
       "email": "Imèl",

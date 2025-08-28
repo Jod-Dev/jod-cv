@@ -5,8 +5,11 @@ import { resumeData } from '@/lib/data'
 import { Mail, Phone, MapPin, Globe } from 'lucide-react'
 import { ContactForm } from './contact-form'
 import { TranslatedText, TranslatedH2, TranslatedP } from './translated-text'
+import { useTranslations } from '@/hooks/useTranslations'
 
 export function Contact() {
+  const { t } = useTranslations()
+  
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -38,7 +41,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-semibold mb-6">{t('contact.contactInformation', 'Contact Information')}</h3>
             
             <div className="space-y-4">
               <motion.div
@@ -48,7 +51,7 @@ export function Contact() {
               >
                 <Mail className="h-6 w-6 text-primary" />
                 <div>
-                  <p className="font-medium">Email</p>
+                  <p className="font-medium">{t('contact.form.email', 'Email')}</p>
                   <p className="text-muted-foreground">{resumeData.basics.email}</p>
                 </div>
               </motion.div>
@@ -60,7 +63,7 @@ export function Contact() {
               >
                 <Phone className="h-6 w-6 text-primary" />
                 <div>
-                  <p className="font-medium">Phone</p>
+                  <p className="font-medium">{t('contact.phone', 'Phone')}</p>
                   <p className="text-muted-foreground">{resumeData.basics.phone}</p>
                 </div>
               </motion.div>
@@ -72,7 +75,7 @@ export function Contact() {
               >
                 <MapPin className="h-6 w-6 text-primary" />
                 <div>
-                  <p className="font-medium">Location</p>
+                  <p className="font-medium">{t('contact.location', 'Location')}</p>
                   <p className="text-muted-foreground">
                     {resumeData.basics.location.city}, {resumeData.basics.location.region}
                   </p>
@@ -86,7 +89,7 @@ export function Contact() {
               >
                 <Globe className="h-6 w-6 text-primary" />
                 <div>
-                  <p className="font-medium">Website</p>
+                  <p className="font-medium">{t('footer.website', 'Website')}</p>
                   <p className="text-muted-foreground">{resumeData.basics.url}</p>
                 </div>
               </motion.div>
@@ -101,10 +104,9 @@ export function Contact() {
             viewport={{ once: true }}
             className="bg-background border border-border rounded-lg p-6"
           >
-            <h3 className="text-2xl font-semibold mb-6">Let&apos;s Connect</h3>
+            <h3 className="text-2xl font-semibold mb-6">{t('contact.letsConnect', 'Let\'s Connect')}</h3>
             <p className="text-muted-foreground mb-6">
-              I&apos;m currently available for new opportunities and would love to hear from you. 
-              Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
+              {t('contact.availableMessage', 'I\'m currently available for new opportunities and would love to hear from you. Whether you have a question or just want to say hi, I\'ll try my best to get back to you!')}
             </p>
             
             <ContactForm />

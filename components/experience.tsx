@@ -48,7 +48,7 @@ export function Experience() {
               <p className="text-muted-foreground mb-4">{job.summary}</p>
               
               <div className="space-y-2">
-                <h4 className="font-medium">Key Responsibilities:</h4>
+                <h4 className="font-medium">{t('experience.keyResponsibilities', 'Key Responsibilities:')}</h4>
                 <ul className="list-disc list-inside text-muted-foreground space-y-1">
                   {job.highlights.map((highlight, i) => (
                     <li key={i}>{highlight}</li>
@@ -57,7 +57,7 @@ export function Experience() {
               </div>
               
               <div className="mt-4">
-                <h4 className="font-medium mb-2">Technologies:</h4>
+                <h4 className="font-medium mb-2">{t('experience.technologies', 'Technologies:')}</h4>
                 <div className="flex flex-wrap gap-2">
                   {job.technologies.map((tech, i) => (
                     <span

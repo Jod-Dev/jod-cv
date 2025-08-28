@@ -159,6 +159,8 @@
     "projectPreview": "Aperçu du Projet",
     "liveDemo": "Démo Live",
     "viewCode": "Voir le Code",
+    "collaboration": "Intéressé à voir plus de mon travail ou discuter d'une collaboration potentielle ?",
+    "letsTalk": "Parlons-en",
     "portfolio": {
       "title": "Portfolio Personnel",
       "description": "Portfolio moderne et responsive construit avec Next.js, TypeScript et Framer Motion. Comprend des animations interactives, effets 3D et performance optimale.",
@@ -192,6 +194,8 @@
     "emailPlaceholder": "votre.email@exemple.com",
     "subjectPlaceholder": "De quoi s'agit-il ?",
     "messagePlaceholder": "Parlez-moi de votre projet ou opportunité...",
+    "phone": "Téléphone",
+    "location": "Localisation",
     "form": {
       "name": "Nom",
       "email": "Email",

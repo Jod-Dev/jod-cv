@@ -35,7 +35,11 @@ export function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold mb-4">Professional Summary</h3>
+            <TranslatedH3 
+              translationKey="about.professionalSummary"
+              fallback="Professional Summary"
+              className="text-2xl font-semibold mb-4"
+            />
             <TranslatedP 
               translationKey="about.description"
               fallback="I am a dedicated IT Support professional with extensive experience in technical support, system administration, and customer service. My expertise includes troubleshooting complex technical issues, providing user training, and maintaining system documentation. I have worked with various technologies and platforms, always focusing on delivering excellent user experiences and efficient problem resolution."

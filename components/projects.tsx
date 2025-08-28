@@ -93,11 +93,11 @@ export function Projects() {
               <div className="relative h-48 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
                 <div className="text-center">
                   <Code className="w-12 h-12 text-primary mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Project Preview</p>
+                  <p className="text-sm text-muted-foreground">{t('projects.projectPreview', 'Project Preview')}</p>
                 </div>
                 {project.featured && (
                   <div className="absolute top-4 left-4 px-2 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded">
-                    Featured
+                    {t('projects.featured', 'Featured')}
                   </div>
                 )}
               </div>
@@ -128,7 +128,7 @@ export function Projects() {
                       className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
                     >
                       <Globe className="w-4 h-4" />
-                      <span className="text-sm font-medium">Live Demo</span>
+                      <span className="text-sm font-medium">{t('projects.liveDemo', 'Live Demo')}</span>
                     </a>
                   )}
                   {project.githubUrl && (
@@ -139,7 +139,7 @@ export function Projects() {
                       className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <Github className="w-4 h-4" />
-                      <span className="text-sm font-medium">Code</span>
+                      <span className="text-sm font-medium">{t('projects.viewCode', 'Code')}</span>
                     </a>
                   )}
                 </div>
@@ -156,7 +156,7 @@ export function Projects() {
           viewport={{ once: true }}
         >
           <p className="text-muted-foreground mb-4">
-            Interested in seeing more of my work or discussing a potential collaboration?
+            {t('projects.collaboration', 'Interested in seeing more of my work or discussing a potential collaboration?')}
           </p>
           <motion.button
             className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
@@ -164,7 +164,7 @@ export function Projects() {
             whileTap={{ scale: 0.95 }}
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Let's Talk
+            {t('projects.letsTalk', 'Let\'s Talk')}
           </motion.button>
         </motion.div>
       </div>

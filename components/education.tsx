@@ -3,8 +3,11 @@
 import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
 import { TranslatedH2 } from './translated-text'
+import { useTranslations } from '@/hooks/useTranslations'
 
 export function Education() {
+  const { t } = useTranslations()
+  
   return (
     <section id="education" className="py-20">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -39,7 +42,7 @@ export function Education() {
               </p>
               
               <div className="space-y-2">
-                <h4 className="font-medium">Key Courses:</h4>
+                <h4 className="font-medium">{t('education.keyCourses', 'Key Courses:')}</h4>
                 <div className="flex flex-wrap gap-2">
                   {edu.courses.map((course, i) => (
                     <span

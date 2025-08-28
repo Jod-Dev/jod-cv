@@ -159,6 +159,8 @@
     "projectPreview": "Vista Previa del Proyecto",
     "liveDemo": "Demo en Vivo",
     "viewCode": "Ver Código",
+    "collaboration": "¿Interesado en ver más de mi trabajo o discutir una colaboración potencial?",
+    "letsTalk": "Hablemos",
     "portfolio": {
       "title": "Portfolio Personal",
       "description": "Portfolio moderno y responsive construido con Next.js, TypeScript y Framer Motion. Incluye animaciones interactivas, efectos 3D y rendimiento óptimo.",
@@ -185,6 +187,15 @@
   "contact": {
     "title": "Ponerse en Contacto",
     "subtitle": "Siempre estoy interesado en nuevas oportunidades y colaboraciones. ¡No dudes en contactarme!",
+    "contactInformation": "Información de Contacto",
+    "letsConnect": "Conectemos",
+    "availableMessage": "Actualmente estoy disponible para nuevas oportunidades y me encantaría saber de ti. Ya sea que tengas una pregunta o solo quieras saludar, ¡haré lo posible por responderte!",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "tu.email@ejemplo.com",
+    "subjectPlaceholder": "¿De qué se trata?",
+    "messagePlaceholder": "Cuéntame sobre tu proyecto o oportunidad...",
+    "phone": "Teléfono",
+    "location": "Ubicación",
     "form": {
       "name": "Nombre",
       "email": "Email",
