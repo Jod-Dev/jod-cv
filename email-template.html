@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Mensaje - Portfolio Jod Louis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .message-info {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .info-value {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e293b;
+        }
+        
+        .message-section {
+            margin-top: 30px;
+        }
+        
+        .message-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .message-section h3::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        
+        .message-content {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #334155;
+            white-space: pre-wrap;
+        }
+        
+        .footer {
+            background: #f8fafc;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .footer p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .timestamp {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 16px;
+        }
+        
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .header, .content, .footer {
+                padding: 24px 20px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>🚀 Nuevo Mensaje</h1>
+            <p>Alguien se ha puesto en contacto contigo desde tu portfolio</p>
+        </div>
+        
+        <div class="content">
+            <div class="message-info">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Nombre</span>
+                        <span class="info-value">{{from_name}}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">{{from_email}}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Asunto</span>
+                        <span class="info-value">{{subject}}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Fecha</span>
+                        <span class="info-value">{{date}}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="message-section">
+                <h3>Mensaje</h3>
+                <div class="message-content">{{message}}</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Este mensaje fue enviado desde tu portfolio personal</p>
+            <div class="social-links">
+                <a href="https://github.com/Jod-Dev" class="social-link">🐙</a>
+                <a href="https://linkedin.com/in/jodlouis" class="social-link">💼</a>
+                <a href="https://jodlouis.com" class="social-link">🌐</a>
+            </div>
+            <div class="timestamp">
+                Enviado el {{date}} a las {{time}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

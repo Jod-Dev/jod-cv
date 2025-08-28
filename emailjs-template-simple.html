@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Mensaje - Portfolio Jod Louis</title>
+</head>
+<body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
+    
+    <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);">
+        
+        <!-- Header -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 30px; text-align: center;">
+            <h1 style="font-size: 28px; font-weight: 700; margin: 0 0 8px 0; letter-spacing: -0.5px;">🚀 Nuevo Mensaje</h1>
+            <p style="font-size: 16px; opacity: 0.9; font-weight: 300; margin: 0;">Alguien se ha puesto en contacto contigo desde tu portfolio</p>
+        </div>
+        
+        <!-- Content -->
+        <div style="padding: 40px 30px;">
+            
+            <!-- Message Info -->
+            <div style="background: #f8fafc; border-radius: 12px; padding: 24px; margin-bottom: 30px; border-left: 4px solid #667eea;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div>
+                        <div style="font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Nombre</div>
+                        <div style="font-size: 16px; font-weight: 500; color: #1e293b;">{{from_name}}</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Email</div>
+                        <div style="font-size: 16px; font-weight: 500; color: #1e293b;">{{from_email}}</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Asunto</div>
+                        <div style="font-size: 16px; font-weight: 500; color: #1e293b;">{{subject}}</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Fecha</div>
+                        <div style="font-size: 16px; font-weight: 500; color: #1e293b;">{{date}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Message Section -->
+            <div style="margin-top: 30px;">
+                <h3 style="font-size: 18px; font-weight: 600; color: #1e293b; margin: 0 0 12px 0;">💬 Mensaje</h3>
+                <div style="background: #f1f5f9; border-radius: 8px; padding: 20px; font-size: 16px; line-height: 1.7; color: #334155; white-space: pre-wrap;">{{message}}</div>
+            </div>
+            
+        </div>
+        
+        <!-- Footer -->
+        <div style="background: #f8fafc; padding: 30px; text-align: center; border-top: 1px solid #e2e8f0;">
+            <p style="color: #64748b; font-size: 14px; margin: 0 0 16px 0;">Este mensaje fue enviado desde tu portfolio personal</p>
+            <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 16px;">
+                <a href="https://github.com/Jod-Dev" style="display: inline-block; width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; text-decoration: none; color: white; text-align: center; line-height: 40px; font-size: 18px;">🐙</a>
+                <a href="https://linkedin.com/in/jodlouis" style="display: inline-block; width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; text-decoration: none; color: white; text-align: center; line-height: 40px; font-size: 18px;">💼</a>
+                <a href="https://jodlouis.com" style="display: inline-block; width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; text-decoration: none; color: white; text-align: center; line-height: 40px; font-size: 18px;">🌐</a>
+            </div>
+            <div style="font-size: 12px; color: #94a3b8;">Enviado el {{date}} a las {{time}}</div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

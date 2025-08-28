@@ -16,18 +16,24 @@
 ### 3. Crear Email Template
 1. Ve a "Email Templates"
 2. Crea un nuevo template
-3. Usa este template básico:
+            3. Usa este template moderno y profesional:
 
-```html
-Subject: New message from {{from_name}}
+            **Subject:** Nuevo mensaje de {{from_name}} - Portfolio Jod Louis
 
-Name: {{from_name}}
-Email: {{from_email}}
-Subject: {{subject}}
+            **Template HTML:** (Copia y pega el contenido del archivo `emailjs-template-simple.html` que creé)
 
-Message:
-{{message}}
-```
+            O usa este template básico si prefieres algo más simple:
+
+            ```html
+            Subject: New message from {{from_name}}
+
+            Name: {{from_name}}
+            Email: {{from_email}}
+            Subject: {{subject}}
+
+            Message:
+            {{message}}
+            ```
 
 4. Copia el **Template ID**
 

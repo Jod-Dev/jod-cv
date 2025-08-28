@@ -41,7 +41,16 @@ export function ContactForm() {
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: 'jodlouis.dev@gmail.com' // Your email address
+          to_email: 'jodlouis.dev@gmail.com', // Your email address
+          date: new Date().toLocaleDateString('es-ES', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+          }),
+          time: new Date().toLocaleTimeString('es-ES', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+          })
         }
       )
       
