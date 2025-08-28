@@ -6,6 +6,7 @@ import { CustomCursor } from '@/components/custom-cursor'
 import { ScrollProgress } from '@/components/scroll-progress'
 import { LanguageProvider } from '@/contexts/language-context'
 import { Analytics } from '@/components/analytics'
+import { PWAInstaller } from '@/components/pwa-installer'
 import { resumeData } from '@/lib/data'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -112,6 +113,7 @@ export default function RootLayout({
           <LanguageProvider>
             {children}
             <Analytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+            <PWAInstaller />
           </LanguageProvider>
         </ThemeProvider>
       </body>

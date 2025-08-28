@@ -45,7 +45,11 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Logo size="md" showText={true} />
+                      <Logo 
+              size="md" 
+              showText={false} 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            />
 
           {/* Desktop Navigation - Minimalist */}
           <nav className="hidden lg:flex items-center gap-6">
