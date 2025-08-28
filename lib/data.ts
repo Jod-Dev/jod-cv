@@ -162,15 +162,15 @@ export const resumeData: Resume = {
   "languages": [
     {
       "language": "English",
-      "fluency": "Native"
-    },
-    {
-      "language": "French",
       "fluency": "Fluent"
     },
     {
-      "language": "Spanish",
+      "language": "French",
       "fluency": "Native"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Fluent"
     },
     {
       "language": "Haitian Creole",

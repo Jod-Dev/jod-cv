@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://jod-cv.pages.dev'),
   title: `${resumeData.basics.name} - ${resumeData.basics.label}`,
   description: resumeData.basics.summary,
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+    apple: '/favicon.svg',
+  },
+  manifest: '/manifest.json',
   keywords: [
     'IT Support',
     'Web Development',
