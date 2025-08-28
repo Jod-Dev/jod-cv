@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { resumeData } from '@/lib/data'
 import { Menu, X } from 'lucide-react'
 import { generateCVPDF } from './cv-generator'
+import { Logo } from './logo'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -39,16 +40,7 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">
-                {resumeData.basics.name.split(' ')[0][0]}
-              </span>
-            </div>
-            <span className="text-xl font-bold text-foreground">
-              {resumeData.basics.name.split(' ')[0]}
-            </span>
-          </div>
+          <Logo size="md" showText={true} />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">

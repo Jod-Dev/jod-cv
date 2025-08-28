@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
 import { ChevronDown } from 'lucide-react'
 import { generateCVPDF } from './cv-generator'
+import { Logo } from './logo'
 
 export function Hero() {
   return (
@@ -21,6 +22,16 @@ export function Hero() {
 
       {/* Main Content */}
       <div className="container mx-auto px-4 text-center relative z-10">
+        {/* Logo */}
+        <motion.div
+          className="flex justify-center mb-8"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1, duration: 0.8, type: "spring" }}
+        >
+          <Logo size="lg" showText={false} />
+        </motion.div>
+
         {/* Badge */}
         <motion.div
           className="inline-flex items-center gap-2 px-4 py-2 bg-muted rounded-full text-muted-foreground mb-8"
