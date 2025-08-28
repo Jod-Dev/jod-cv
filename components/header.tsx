@@ -47,82 +47,174 @@ export function Header() {
           {/* Logo */}
           <Logo size="md" showText={true} />
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
-              >
-                <TranslatedText 
-                  translationKey={item.label}
-                  fallback={item.label.split('.').pop() || item.label}
-                />
-              </a>
-            ))}
+          {/* Desktop Navigation - Minimalist */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {/* Main Navigation */}
+            <div className="flex items-center gap-6">
+              {navItems.slice(0, 3).map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium text-sm"
+                >
+                  <TranslatedText 
+                    translationKey={item.label}
+                    fallback={item.label.split('.').pop() || item.label}
+                  />
+                </a>
+              ))}
+            </div>
             
-            {/* Theme Toggle */}
-            <ThemeToggle />
+            {/* Separator */}
+            <div className="w-px h-6 bg-border" />
             
-            {/* Language Switcher */}
-            <LanguageSwitcher 
-              currentLanguage={currentLanguage}
-              onLanguageChange={setLanguage}
-            />
-            
-            {/* CTA Button */}
-            <TranslatedButton 
-              translationKey="navigation.downloadCV"
-              fallback="Download CV"
-              className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-              onClick={generateCVPDF}
-            />
+            {/* Controls Group */}
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+              <LanguageSwitcher 
+                currentLanguage={currentLanguage}
+                onLanguageChange={setLanguage}
+              />
+              <TranslatedButton 
+                translationKey="navigation.downloadCV"
+                fallback="CV"
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors text-sm"
+                onClick={generateCVPDF}
+              />
+            </div>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Modern */}
           <button
-            className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+            className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <motion.div
+              animate={isMobileMenuOpen ? "open" : "closed"}
+              className="flex flex-col gap-1"
+            >
+              <motion.span
+                variants={{
+                  closed: { rotate: 0, y: 0 },
+                  open: { rotate: 45, y: 6 }
+                }}
+                className="w-5 h-0.5 bg-current"
+              />
+              <motion.span
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 }
+                }}
+                className="w-5 h-0.5 bg-current"
+              />
+              <motion.span
+                variants={{
+                  closed: { rotate: 0, y: 0 },
+                  open: { rotate: -45, y: -6 }
+                }}
+                className="w-5 h-0.5 bg-current"
+              />
+            </motion.div>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Modern Mobile Menu - Side Panel */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            className="md:hidden bg-background border-t border-border"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="container mx-auto px-4 py-4">
-              <nav className="flex flex-col gap-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
+          <>
+            {/* Backdrop */}
+            <motion.div
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm lg:hidden z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Side Panel */}
+            <motion.div
+              className="fixed top-0 right-0 h-full w-80 bg-background border-l border-border lg:hidden z-50"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            >
+              <div className="flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center justify-between p-6 border-b border-border">
+                  <h2 className="text-lg font-semibold">Menu</h2>
+                  <button
                     onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-2 text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    <TranslatedText 
-                      translationKey={item.label}
-                      fallback={item.label.split('.').pop() || item.label}
-                    />
-                  </a>
-                ))}
-                <TranslatedButton 
-                  translationKey="navigation.downloadCV"
-                  fallback="Download CV"
-                  className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors text-left"
-                />
-              </nav>
-            </div>
-          </motion.div>
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                
+                {/* Navigation */}
+                <nav className="flex-1 p-6">
+                  <div className="space-y-6">
+                    {/* Main Navigation */}
+                    <div>
+                      <h3 className="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wider">
+                        Navigation
+                      </h3>
+                      <div className="space-y-3">
+                        {navItems.map((item) => (
+                          <a
+                            key={item.href}
+                            href={item.href}
+                            className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            <TranslatedText 
+                              translationKey={item.label}
+                              fallback={item.label.split('.').pop() || item.label}
+                            />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Controls */}
+                    <div>
+                      <h3 className="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wider">
+                        Settings
+                      </h3>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-muted-foreground">Theme</span>
+                          <ThemeToggle />
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-muted-foreground">Language</span>
+                          <LanguageSwitcher 
+                            currentLanguage={currentLanguage}
+                            onLanguageChange={setLanguage}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* CTA */}
+                    <div className="pt-4 border-t border-border">
+                      <TranslatedButton 
+                        translationKey="navigation.downloadCV"
+                        fallback="Download CV"
+                        className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                        onClick={() => {
+                          generateCVPDF()
+                          setIsMobileMenuOpen(false)
+                        }}
+                      />
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

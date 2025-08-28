@@ -1,17 +1,19 @@
 name = "jod-cv"
 compatibility_date = "2024-01-01"
-compatibility_flags = ["nodejs_compat"]
 
 [build]
-command = "npm run build:cloudflare"
-publish = "."
+command = "npm run build"
+publish = "out"
 
 [build.environment]
 NODE_VERSION = "18"
-NPM_VERSION = "10"
 
+# Configurar dominio personalizado
 [env.production]
-compatibility_flags = ["nodejs_compat"]
+name = "jod-cv"
+route = "jod-cv.pages.dev/*"
 
-[env.preview]
-compatibility_flags = ["nodejs_compat"]
+# Configurar alias para URL limpia
+[[env.production.routes]]
+pattern = "jod-cv.pages.dev/*"
+zone_name = "pages.dev"
