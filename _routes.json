@@ -1,15 +1,11 @@
 {
   "version": 1,
-  "include": ["/*"],
-  "exclude": [
-    "/_next/*",
-    "/api/*",
-    "/static/*"
+  "include": [
+    "/*"
   ],
-  "routes": [
-    {
-      "src": "/*",
-      "dest": "/index.html"
-    }
+  "exclude": [
+    "/_next/static/*",
+    "/_next/image*",
+    "/_next/webpack-hmr*"
   ]
 }
