@@ -1,0 +1,45 @@
+name: Auto-Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  auto-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Setup Cloudflare CLI
+      uses: cloudflare/setup-wrangler@v3
+      with:
+        api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        
+    - name: Run Auto-Deploy Script
+      run: ./scripts/auto-deploy.sh
+      env:
+        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        
+    - name: Notify on Success
+      if: success()
+      run: |
+        echo "✅ Deployment successful!"
+        echo "🌐 Site deployed to Cloudflare Pages"
+        
+    - name: Notify on Failure
+      if: failure()
+      run: |
+        echo "❌ Deployment failed!"
+        echo "Check the logs above for details"

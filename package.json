@@ -18,7 +18,9 @@
     "docker:dev": "docker-compose --profile dev up --build",
     "docker:prod": "docker-compose up --build",
     "docker:build": "docker build -t jod-portfolio .",
-    "docker:run": "docker run -p 3000:3000 jod-portfolio"
+    "docker:run": "docker run -p 3000:3000 jod-portfolio",
+    "deploy": "./scripts/auto-deploy.sh",
+    "deploy:auto": "./scripts/auto-deploy.sh"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
