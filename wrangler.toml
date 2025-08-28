@@ -8,3 +8,10 @@ publish = "."
 
 [build.environment]
 NODE_VERSION = "18"
+NPM_VERSION = "10"
+
+[env.production]
+compatibility_flags = ["nodejs_compat"]
+
+[env.preview]
+compatibility_flags = ["nodejs_compat"]

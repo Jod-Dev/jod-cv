@@ -1,0 +1,14 @@
+{
+  "compatibility_flags": ["nodejs_compat"],
+  "build": {
+    "command": "npm run build:cloudflare",
+    "publish": ".",
+    "environment": {
+      "NODE_VERSION": "18",
+      "NPM_VERSION": "10"
+    }
+  },
+  "functions": {
+    "directory": "functions"
+  }
+}
