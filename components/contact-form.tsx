@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { useTranslations } from '@/hooks/useTranslations'
+import { emailConfig, isEmailConfigured } from '@/lib/email-config'
 
 interface FormData {
   name: string
@@ -12,6 +14,8 @@ interface FormData {
 }
 
 export function ContactForm() {
+  const { t } = useTranslations()
+  
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -27,52 +31,55 @@ export function ContactForm() {
     setSubmitStatus('idle')
 
     try {
-      // Try to use EmailJS if available
-      const emailjs = await import('@emailjs/browser')
-      
-      // Initialize EmailJS with actual credentials
-      emailjs.init('d2flKGackRIKN71dF')
-      
-      const result = await emailjs.send(
-        'gmail_smtp', // EmailJS service ID
-        'template_gmail', // EmailJS template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: 'jodlouis.dev@gmail.com', // Your email address
-          date: new Date().toLocaleDateString('es-ES', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-          }),
-          time: new Date().toLocaleTimeString('es-ES', { 
-            hour: '2-digit', 
-            minute: '2-digit' 
-          })
+      // Check if EmailJS is properly configured
+      if (isEmailConfigured()) {
+        const emailjs = await import('@emailjs/browser')
+        
+        // Initialize EmailJS with configured credentials
+        emailjs.init(emailConfig.publicKey)
+        
+        const result = await emailjs.send(
+          emailConfig.serviceId,
+          emailConfig.templateId,
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            to_email: emailConfig.toEmail,
+            date: new Date().toLocaleDateString('es-ES', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            }),
+            time: new Date().toLocaleTimeString('es-ES', { 
+              hour: '2-digit', 
+              minute: '2-digit' 
+            })
+          }
+        )
+        
+        if (result.status === 200) {
+          setSubmitStatus('success')
+          setFormData({ name: '', email: '', subject: '', message: '' })
+        } else {
+          throw new Error('Email sending failed')
         }
-      )
-      
-      if (result.status === 200) {
+      } else {
+        // Fallback: Simulate email sending for demo purposes
+        console.log('Email content that would be sent:')
+        console.log('From:', formData.name, formData.email)
+        console.log('Subject:', formData.subject)
+        console.log('Message:', formData.message)
+        
+        // Simulate success for demo
+        await new Promise(resolve => setTimeout(resolve, 2000))
         setSubmitStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
-      } else {
-        throw new Error('Email sending failed')
       }
     } catch (error) {
       console.error('Email sending error:', error)
-      
-      // Fallback: Simulate email sending for demo purposes
-      console.log('Email content that would be sent:')
-      console.log('From:', formData.name, formData.email)
-      console.log('Subject:', formData.subject)
-      console.log('Message:', formData.message)
-      
-      // Simulate success for demo
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
+      setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
     }
@@ -97,7 +104,7 @@ export function ContactForm() {
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium mb-2">
-            Name *
+            {t('contact.form.name', 'Name')} *
           </label>
           <input
             type="text"
@@ -107,12 +114,12 @@ export function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-            placeholder="Your name"
+            placeholder={t('contact.namePlaceholder', 'Your name')}
           />
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium mb-2">
-            Email *
+            {t('contact.form.email', 'Email')} *
           </label>
           <input
             type="email"
@@ -122,14 +129,14 @@ export function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-            placeholder="your.email@example.com"
+            placeholder={t('contact.emailPlaceholder', 'your.email@example.com')}
           />
         </div>
       </div>
       
       <div>
         <label htmlFor="subject" className="block text-sm font-medium mb-2">
-          Subject *
+          {t('contact.form.subject', 'Subject')} *
         </label>
         <input
           type="text"
@@ -139,13 +146,13 @@ export function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-          placeholder="What's this about?"
+                      placeholder={t('contact.subjectPlaceholder', 'What\'s this about?')}
         />
       </div>
       
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
-          Message *
+          {t('contact.form.message', 'Message')} *
         </label>
         <textarea
           id="message"
@@ -155,7 +162,7 @@ export function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"
-          placeholder="Tell me about your project or opportunity..."
+                      placeholder={t('contact.messagePlaceholder', 'Tell me about your project or opportunity...')}
         />
       </div>
       
@@ -167,22 +174,22 @@ export function ContactForm() {
         {isSubmitting ? (
           <>
             <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
-            Sending...
+            {t('contact.form.sending', 'Sending...')}
           </>
         ) : submitStatus === 'success' ? (
           <>
             <CheckCircle className="w-5 h-5" />
-            Message Sent!
+            {t('contact.form.sent', 'Message Sent!')}
           </>
         ) : submitStatus === 'error' ? (
           <>
             <AlertCircle className="w-5 h-5" />
-            Try Again
+            {t('contact.form.error', 'Try Again')}
           </>
         ) : (
           <>
             <Send className="w-5 h-5" />
-            Send Message
+            {t('contact.form.send', 'Send Message')}
           </>
         )}
       </button>
@@ -194,7 +201,7 @@ export function ContactForm() {
           className="p-4 bg-green-50 border border-green-200 rounded-lg"
         >
           <p className="text-green-800 text-sm">
-            Thank you for your message! I'll get back to you as soon as possible.
+            {t('contact.success', 'Thank you for your message! I\'ll get back to you as soon as possible.')}
           </p>
         </motion.div>
       )}
@@ -206,7 +213,7 @@ export function ContactForm() {
           className="p-4 bg-red-50 border border-red-200 rounded-lg"
         >
                                 <p className="text-red-800 text-sm">
-                        There was an error sending your message. Please try again or contact me directly at jodlouis.dev@gmail.com
+                        {t('contact.error', 'There was an error sending your message. Please try again or contact me directly at jodlouis.dev@gmail.com')}
                       </p>
         </motion.div>
       )}

@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react'
 import { generateCVPDF } from './cv-generator'
 import { Logo } from './logo'
 import { LanguageSwitcher } from './language-switcher'
+import { ThemeToggle } from './theme-toggle'
 import { useLanguage } from '@/contexts/language-context'
 import { TranslatedText, TranslatedButton } from './translated-text'
 
@@ -60,6 +61,9 @@ export function Header() {
                 />
               </a>
             ))}
+            
+            {/* Theme Toggle */}
+            <ThemeToggle />
             
             {/* Language Switcher */}
             <LanguageSwitcher 
