@@ -1,13 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',
   images: {
     unoptimized: true,
   },
   trailingSlash: true,
-  experimental: {
-    outputFileTracingRoot: undefined,
-  },
 }
 
 module.exports = nextConfig
