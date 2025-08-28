@@ -92,9 +92,10 @@ interface FlatSectionProps {
   children: ReactNode
   className?: string
   background?: 'none' | 'muted' | 'subtle'
+  id?: string
 }
 
-export function FlatSection({ children, className = '', background = 'none' }: FlatSectionProps) {
+export function FlatSection({ children, className = '', background = 'none', id }: FlatSectionProps) {
   const backgroundClasses = {
     none: '',
     muted: 'bg-muted/20',
@@ -102,7 +103,7 @@ export function FlatSection({ children, className = '', background = 'none' }: F
   }
   
   return (
-    <section className={`py-16 ${backgroundClasses[background]} ${className}`}>
+    <section id={id} className={`py-16 ${backgroundClasses[background]} ${className}`}>
       <div className="container mx-auto px-4 max-w-6xl">
         {children}
       </div>
