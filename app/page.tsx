@@ -10,6 +10,7 @@ import { LazyProjects } from '@/components/lazy-load'
 import { LazyContact } from '@/components/lazy-load'
 import { Footer } from '@/components/footer'
 import { KeyboardNavigation } from '@/components/keyboard-navigation'
+import { SectionTracker } from '@/components/section-tracker'
 
 export default function HomePage() {
   return (
@@ -17,15 +18,33 @@ export default function HomePage() {
       <KeyboardNavigation />
       <Header />
       <div className="pt-16">
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Education />
-        <Awards />
-        <Volunteer />
-        <LazyProjects />
-        <LazyContact />
+        <SectionTracker sectionId="hero">
+          <Hero />
+        </SectionTracker>
+        <SectionTracker sectionId="about">
+          <About />
+        </SectionTracker>
+        <SectionTracker sectionId="experience">
+          <Experience />
+        </SectionTracker>
+        <SectionTracker sectionId="skills">
+          <Skills />
+        </SectionTracker>
+        <SectionTracker sectionId="education">
+          <Education />
+        </SectionTracker>
+        <SectionTracker sectionId="awards">
+          <Awards />
+        </SectionTracker>
+        <SectionTracker sectionId="volunteer">
+          <Volunteer />
+        </SectionTracker>
+        <SectionTracker sectionId="projects">
+          <LazyProjects />
+        </SectionTracker>
+        <SectionTracker sectionId="contact">
+          <LazyContact />
+        </SectionTracker>
       </div>
       <Footer />
     </main>

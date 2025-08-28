@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Globe, ChevronDown } from 'lucide-react'
+import { trackLanguageChange } from '@/components/analytics'
 
 interface Language {
   code: string
@@ -80,6 +81,7 @@ export function LanguageSwitcher({
                   key={language.code}
                   onClick={() => {
                     onLanguageChange(language.code)
+                    trackLanguageChange(language.code)
                     setIsOpen(false)
                   }}
                   className={`w-full flex items-center gap-3 px-4 py-2 text-left hover:bg-muted transition-colors ${

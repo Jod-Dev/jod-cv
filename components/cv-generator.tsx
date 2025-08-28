@@ -1,6 +1,7 @@
 "use client"
 
 import { resumeData } from '@/lib/data'
+import { trackCvDownload } from '@/components/analytics'
 
 export async function generateCVPDF() {
   try {
@@ -198,6 +199,7 @@ export async function generateCVPDF() {
     
     // Save the PDF
     doc.save(`${resumeData.basics.name.replace(' ', '-')}-CV.pdf`)
+    trackCvDownload() // Track CV download
     
   } catch (error) {
     console.error('Error generating PDF:', error)

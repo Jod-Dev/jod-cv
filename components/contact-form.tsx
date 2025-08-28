@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import { emailConfig, isEmailConfigured } from '@/lib/email-config'
+import { trackFormSubmission } from '@/components/analytics'
 
 interface FormData {
   name: string
@@ -62,6 +63,7 @@ export function ContactForm() {
         if (result.status === 200) {
           setSubmitStatus('success')
           setFormData({ name: '', email: '', subject: '', message: '' })
+          trackFormSubmission() // Track successful form submission
         } else {
           throw new Error('Email sending failed')
         }

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Sun, Moon } from 'lucide-react'
+import { trackThemeChange } from '@/components/analytics'
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
@@ -42,6 +43,7 @@ export function ThemeToggle() {
     setTheme(newTheme)
     localStorage.setItem('theme', newTheme)
     applyTheme(newTheme)
+    trackThemeChange(newTheme)
   }
 
   return (
