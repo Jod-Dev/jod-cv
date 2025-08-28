@@ -2,8 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
+import { TranslatedH2, TranslatedText } from './translated-text'
+import { useTranslations } from '@/hooks/useTranslations'
 
 export function Experience() {
+  const { t } = useTranslations()
+  
   return (
     <section id="experience" className="py-20">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -14,9 +18,11 @@ export function Experience() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            Work Experience
-          </h2>
+          <TranslatedH2 
+            translationKey="experience.title"
+            fallback="Work Experience"
+            className="text-4xl md:text-5xl font-bold mb-6 gradient-text"
+          />
         </motion.div>
 
         <div className="space-y-8">
@@ -35,7 +41,7 @@ export function Experience() {
                   <p className="text-primary font-medium">{job.name}</p>
                 </div>
                 <div className="text-sm text-muted-foreground mt-2 md:mt-0">
-                  {job.startDate} - {job.endDate || 'Present'}
+                  {job.startDate} - {job.endDate || t('experience.current', 'Present')}
                 </div>
               </div>
               

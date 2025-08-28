@@ -147,7 +147,8 @@
     }
   },
   "projects": {
-    "title": "Featured Projects",
+    "title": "Projects & Work",
+    "subtitle": "Here are some of the projects and systems I've worked on. Each represents a unique challenge and learning opportunity.",
     "portfolio": {
       "title": "Personal Portfolio",
       "description": "Modern, responsive portfolio built with Next.js, TypeScript, and Framer Motion. Features interactive animations, 3D effects, and optimal performance.",

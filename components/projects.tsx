@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, Code, Globe } from 'lucide-react'
+import { TranslatedH2, TranslatedP } from './translated-text'
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface Project {
   id: string
@@ -52,6 +54,8 @@ const projects: Project[] = [
 ]
 
 export function Projects() {
+  const { t } = useTranslations()
+  
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -62,10 +66,16 @@ export function Projects() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">Projects & Work</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Here are some of the projects and systems I've worked on. Each represents a unique challenge and learning opportunity.
-          </p>
+          <TranslatedH2 
+            translationKey="projects.title"
+            fallback="Projects & Work"
+            className="text-4xl md:text-5xl font-bold mb-6 gradient-text"
+          />
+          <TranslatedP 
+            translationKey="projects.subtitle"
+            fallback="Here are some of the projects and systems I've worked on. Each represents a unique challenge and learning opportunity."
+            className="text-lg text-muted-foreground max-w-3xl mx-auto"
+          />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">

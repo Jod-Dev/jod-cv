@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
+import { TranslatedH2 } from './translated-text'
 
 export function Skills() {
   return (
@@ -14,9 +15,11 @@ export function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            Skills & Technologies
-          </h2>
+          <TranslatedH2 
+            translationKey="skills.title"
+            fallback="Skills & Technologies"
+            className="text-4xl md:text-5xl font-bold mb-6 gradient-text"
+          />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
