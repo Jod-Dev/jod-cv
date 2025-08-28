@@ -21,11 +21,14 @@
     "docker:run": "docker run -p 3000:3000 jod-portfolio"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.3.0",
     "@react-three/drei": "^9.99.7",
     "@react-three/fiber": "^8.15.19",
+    "@types/file-saver": "^2.0.7",
     "@use-gesture/react": "^10.3.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "file-saver": "^2.0.5",
     "framer-motion": "^10.16.4",
     "gsap": "^3.12.2",
     "html2canvas": "^1.4.1",
