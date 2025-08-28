@@ -4,11 +4,9 @@ import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
 import { Mail, Phone, MapPin, Globe } from 'lucide-react'
 import { ContactForm } from './contact-form'
-import { useLanguage } from '@/contexts/language-context'
+import { TranslatedText, TranslatedH2, TranslatedP } from './translated-text'
 
 export function Contact() {
-  const { messages } = useLanguage()
-  
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -19,12 +17,16 @@ export function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            {messages.contact?.title || 'Get In Touch'}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {messages.contact?.subtitle || "I'm always interested in new opportunities and collaborations. Feel free to reach out if you'd like to connect!"}
-          </p>
+          <TranslatedH2 
+            translationKey="contact.title"
+            fallback="Get In Touch"
+            className="text-4xl md:text-5xl font-bold mb-6 gradient-text"
+          />
+          <TranslatedP 
+            translationKey="contact.subtitle"
+            fallback="I'm always interested in new opportunities and collaborations. Feel free to reach out if you'd like to connect!"
+            className="text-lg text-muted-foreground max-w-3xl mx-auto"
+          />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">

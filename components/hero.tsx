@@ -5,11 +5,9 @@ import { resumeData } from '@/lib/data'
 import { ChevronDown } from 'lucide-react'
 import { generateCVPDF } from './cv-generator'
 import { Logo } from './logo'
-import { useLanguage } from '@/contexts/language-context'
+import { TranslatedText, TranslatedButton, TranslatedP } from './translated-text'
 
 export function Hero() {
-  const { messages } = useLanguage()
-  
   return (
     <section 
       id="hero" 
@@ -42,7 +40,11 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          <span className="text-sm font-medium">{messages.hero?.available || 'Available for opportunities'}</span>
+          <TranslatedText 
+            translationKey="hero.available" 
+            fallback="Available for opportunities"
+            className="text-sm font-medium"
+          />
         </motion.div>
 
         {/* Main heading */}
@@ -53,7 +55,11 @@ export function Hero() {
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-            <span className="text-foreground">{messages.hero?.greeting || "Hi, I'm"} </span>
+            <TranslatedText 
+              translationKey="hero.greeting" 
+              fallback="Hi, I'm"
+              className="text-foreground"
+            />
             <br />
             <span className="text-primary">{resumeData.basics.name}</span>
           </h1>
@@ -66,20 +72,25 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium">
-            {messages.hero?.title || resumeData.basics.label}
-          </p>
+          <TranslatedP 
+            translationKey="hero.title" 
+            fallback={resumeData.basics.label}
+            className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium"
+          />
         </motion.div>
 
         {/* Description */}
-        <motion.p
-          className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          {messages.hero?.summary || resumeData.basics.summary}
-        </motion.p>
+          <TranslatedP 
+            translationKey="hero.summary" 
+            fallback={resumeData.basics.summary}
+            className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
+          />
+        </motion.div>
 
         {/* CTA Buttons */}
         <motion.div
@@ -88,12 +99,16 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <button className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-            {messages.hero?.getInTouch || 'Get In Touch'}
-          </button>
-          <button className="px-8 py-4 border border-border text-foreground rounded-lg font-semibold hover:bg-muted transition-colors">
-            {messages.hero?.viewWork || 'View My Work'}
-          </button>
+          <TranslatedButton 
+            translationKey="hero.getInTouch"
+            fallback="Get In Touch"
+            className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+          />
+          <TranslatedButton 
+            translationKey="hero.viewWork"
+            fallback="View My Work"
+            className="px-8 py-4 border border-border text-foreground rounded-lg font-semibold hover:bg-muted transition-colors"
+          />
         </motion.div>
 
         {/* Scroll indicator */}

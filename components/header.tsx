@@ -8,6 +8,7 @@ import { generateCVPDF } from './cv-generator'
 import { Logo } from './logo'
 import { LanguageSwitcher } from './language-switcher'
 import { useLanguage } from '@/contexts/language-context'
+import { TranslatedText, TranslatedButton } from './translated-text'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -24,12 +25,12 @@ export function Header() {
   }, [])
 
   const navItems = [
-    { href: '#about', label: messages.navigation?.about || 'About' },
-    { href: '#experience', label: messages.navigation?.experience || 'Experience' },
-    { href: '#skills', label: messages.navigation?.skills || 'Skills' },
-    { href: '#education', label: messages.navigation?.education || 'Education' },
-    { href: '#projects', label: messages.navigation?.projects || 'Projects' },
-    { href: '#contact', label: messages.navigation?.contact || 'Contact' }
+    { href: '#about', label: 'navigation.about' },
+    { href: '#experience', label: 'navigation.experience' },
+    { href: '#skills', label: 'navigation.skills' },
+    { href: '#education', label: 'navigation.education' },
+    { href: '#projects', label: 'navigation.projects' },
+    { href: '#contact', label: 'navigation.contact' }
   ]
 
   return (
@@ -53,7 +54,10 @@ export function Header() {
                 href={item.href}
                 className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
               >
-                {item.label}
+                <TranslatedText 
+                  translationKey={item.label}
+                  fallback={item.label.split('.').pop() || item.label}
+                />
               </a>
             ))}
             
@@ -64,12 +68,12 @@ export function Header() {
             />
             
             {/* CTA Button */}
-            <button 
+            <TranslatedButton 
+              translationKey="navigation.downloadCV"
+              fallback="Download CV"
               className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
               onClick={generateCVPDF}
-            >
-              {messages.navigation?.downloadCV || 'Download CV'}
-            </button>
+            />
           </nav>
 
           {/* Mobile Menu Button */}
@@ -101,12 +105,17 @@ export function Header() {
                     className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {item.label}
+                    <TranslatedText 
+                      translationKey={item.label}
+                      fallback={item.label.split('.').pop() || item.label}
+                    />
                   </a>
                 ))}
-                <button className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors text-left">
-                  Download CV
-                </button>
+                <TranslatedButton 
+                  translationKey="navigation.downloadCV"
+                  fallback="Download CV"
+                  className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors text-left"
+                />
               </nav>
             </div>
           </motion.div>
