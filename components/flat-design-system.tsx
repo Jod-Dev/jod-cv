@@ -119,8 +119,6 @@ interface FlatHeadingProps {
 }
 
 export function FlatHeading({ children, level = 2, className = '', centered = false }: FlatHeadingProps) {
-  const Tag = `h${level}` as keyof JSX.IntrinsicElements
-  
   const sizeClasses = {
     1: 'text-5xl md:text-6xl font-bold',
     2: 'text-4xl md:text-5xl font-bold',
@@ -128,11 +126,20 @@ export function FlatHeading({ children, level = 2, className = '', centered = fa
     4: 'text-xl md:text-2xl font-medium'
   }
   
-  return (
-    <Tag className={`${sizeClasses[level]} text-foreground ${centered ? 'text-center' : ''} ${className}`}>
-      {children}
-    </Tag>
-  )
+  const classes = `${sizeClasses[level]} text-foreground ${centered ? 'text-center' : ''} ${className}`
+  
+  switch (level) {
+    case 1:
+      return <h1 className={classes}>{children}</h1>
+    case 2:
+      return <h2 className={classes}>{children}</h2>
+    case 3:
+      return <h3 className={classes}>{children}</h3>
+    case 4:
+      return <h4 className={classes}>{children}</h4>
+    default:
+      return <h2 className={classes}>{children}</h2>
+  }
 }
 
 interface FlatTextProps {
