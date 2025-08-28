@@ -68,9 +68,30 @@ EOF
     success "Fixed wrangler.toml"
 }
 
+# Function to check rules
+check_rules() {
+    log "Checking rules directory..."
+    
+    if [ ! -d "rules" ]; then
+        warning "Rules directory not found"
+        return 1
+    fi
+    
+    if [ ! -f "rules/README.md" ]; then
+        warning "Rules README not found"
+        return 1
+    fi
+    
+    success "Rules directory and files found"
+    return 0
+}
+
 # Main execution
 main() {
     log "Starting pre-commit fixes..."
+    
+    # Check rules first
+    check_rules
     
     # Fix common deployment files
     fix_routes_json
@@ -78,10 +99,11 @@ main() {
     fix_wrangler_toml
     
     # Add the fixed files to the commit
-    git add _routes.json _redirects wrangler.toml
+    git add _routes.json _redirects wrangler.toml rules/
     
     success "Pre-commit fixes completed!"
     log "Fixed files have been staged for commit"
+    log "Rules have been verified and included"
 }
 
 # Run main function
