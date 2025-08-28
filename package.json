@@ -7,7 +7,7 @@
     "dev:local": "next dev",
     "build": "next build",
     "build:local": "next build",
-    "build:cloudflare": "next build && cp out/index.html . && cp out/_redirects . && cp out/_headers .",
+    "build:cloudflare": "next build && cp out/index.html . && cp out/_redirects . && cp out/_headers . && cp out/_routes.json .",
     "export": "next build",
     "start": "docker run -p 3000:3000 jod-portfolio:latest",
     "start:local": "next start",

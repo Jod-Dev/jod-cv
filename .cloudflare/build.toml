@@ -6,6 +6,9 @@ publish = "."
 NODE_VERSION = "18"
 NPM_VERSION = "10"
 
+[compatibility_flags]
+nodejs_compat = true
+
 [[redirects]]
 from = "/*"
 to = "/index.html"
