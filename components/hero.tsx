@@ -5,8 +5,11 @@ import { resumeData } from '@/lib/data'
 import { ChevronDown } from 'lucide-react'
 import { generateCVPDF } from './cv-generator'
 import { Logo } from './logo'
+import { useLanguage } from '@/contexts/language-context'
 
 export function Hero() {
+  const { messages } = useLanguage()
+  
   return (
     <section 
       id="hero" 
@@ -39,7 +42,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          <span className="text-sm font-medium">Available for opportunities</span>
+          <span className="text-sm font-medium">{messages.hero?.available || 'Available for opportunities'}</span>
         </motion.div>
 
         {/* Main heading */}
@@ -50,7 +53,7 @@ export function Hero() {
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-            <span className="text-foreground">Hi, I'm </span>
+            <span className="text-foreground">{messages.hero?.greeting || "Hi, I'm"} </span>
             <br />
             <span className="text-primary">{resumeData.basics.name}</span>
           </h1>
@@ -64,7 +67,7 @@ export function Hero() {
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium">
-            {resumeData.basics.label}
+            {messages.hero?.title || resumeData.basics.label}
           </p>
         </motion.div>
 
@@ -75,7 +78,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          {resumeData.basics.summary}
+          {messages.hero?.summary || resumeData.basics.summary}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -86,10 +89,10 @@ export function Hero() {
           transition={{ delay: 1, duration: 0.8 }}
         >
           <button className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-            Get In Touch
+            {messages.hero?.getInTouch || 'Get In Touch'}
           </button>
           <button className="px-8 py-4 border border-border text-foreground rounded-lg font-semibold hover:bg-muted transition-colors">
-            View My Work
+            {messages.hero?.viewWork || 'View My Work'}
           </button>
         </motion.div>
 

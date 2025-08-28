@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
+import { useLanguage } from '@/contexts/language-context'
 
 export function About() {
+  const { messages } = useLanguage()
+  
   return (
     <section id="about" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -15,10 +18,10 @@ export function About() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            About Me
+            {messages.about?.title || 'About Me'}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {resumeData.basics.summary}
+            {messages.about?.description || resumeData.basics.summary}
           </p>
         </motion.div>
 
@@ -32,11 +35,7 @@ export function About() {
           >
             <h3 className="text-2xl font-semibold mb-4">Professional Summary</h3>
             <p className="text-muted-foreground leading-relaxed">
-              I am a dedicated IT Support professional with extensive experience in technical support, 
-              system administration, and customer service. My expertise includes troubleshooting complex 
-              technical issues, providing user training, and maintaining system documentation. I have 
-              worked with various technologies and platforms, always focusing on delivering excellent 
-              user experiences and efficient problem resolution.
+              {messages.about?.description || "I am a dedicated IT Support professional with extensive experience in technical support, system administration, and customer service. My expertise includes troubleshooting complex technical issues, providing user training, and maintaining system documentation. I have worked with various technologies and platforms, always focusing on delivering excellent user experiences and efficient problem resolution."}
             </p>
           </motion.div>
 
@@ -47,7 +46,7 @@ export function About() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold mb-4">Languages</h3>
+            <h3 className="text-2xl font-semibold mb-4">{messages.languages?.title || 'Languages'}</h3>
             <div className="space-y-3">
               {resumeData.languages.map((language, index) => (
                 <motion.div

@@ -4,8 +4,11 @@ import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
 import { Mail, Phone, MapPin, Globe } from 'lucide-react'
 import { ContactForm } from './contact-form'
+import { useLanguage } from '@/contexts/language-context'
 
 export function Contact() {
+  const { messages } = useLanguage()
+  
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -17,11 +20,10 @@ export function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            Get In Touch
+            {messages.contact?.title || 'Get In Touch'}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            I&apos;m always interested in new opportunities and collaborations. 
-            Feel free to reach out if you&apos;d like to connect!
+            {messages.contact?.subtitle || "I'm always interested in new opportunities and collaborations. Feel free to reach out if you'd like to connect!"}
           </p>
         </motion.div>
 
