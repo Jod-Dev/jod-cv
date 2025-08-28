@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { CustomCursor } from '@/components/custom-cursor'
 import { ScrollProgress } from '@/components/scroll-progress'
+import { LanguageProvider } from '@/contexts/language-context'
 import { resumeData } from '@/lib/data'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     ],
     apple: '/favicon.svg',
   },
-  manifest: '/manifest.json',
+  manifest: '/manifest.json?v=2',
   keywords: [
     'IT Support',
     'Web Development',
@@ -107,7 +108,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

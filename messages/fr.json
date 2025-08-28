@@ -1,0 +1,204 @@
+{
+  "navigation": {
+    "about": "À propos",
+    "experience": "Expérience",
+    "skills": "Compétences",
+    "education": "Formation",
+    "projects": "Projets",
+    "contact": "Contact",
+    "downloadCV": "Télécharger CV"
+  },
+  "hero": {
+    "available": "Disponible pour des opportunités",
+    "greeting": "Bonjour, je suis",
+    "title": "Support IT & Développeur Web",
+    "summary": "Professionnel expérimenté en support IT avec expertise en support technique, développement web et service client. Compétent en dépannage, administration système et fourniture d'un excellent support utilisateur.",
+    "getInTouch": "Me Contacter",
+    "viewWork": "Voir Mon Travail"
+  },
+  "about": {
+    "title": "À Propos de Moi",
+    "description": "Je suis un professionnel IT passionné avec une vaste expérience en support technique et développement web. J'aime résoudre des problèmes complexes et aider les utilisateurs à atteindre leurs objectifs grâce à la technologie.",
+    "location": "Basé à Tampa, FL",
+    "experience": "Années d'Expérience",
+    "projects": "Projets Réalisés",
+    "languages": "Langues Parlées"
+  },
+  "experience": {
+    "title": "Expérience Professionnelle",
+    "current": "Présent",
+    "positions": {
+      "automatedHealth": {
+        "title": "Spécialiste Support IT",
+        "company": "Automated Health Systems",
+        "period": "Jan 2023 - Présent",
+        "description": "Fournir un support technique et une administration système pour les logiciels de santé.",
+        "highlights": [
+          "Dépanner et résoudre les problèmes techniques pour les logiciels de santé",
+          "Fournir formation et support utilisateur",
+          "Maintenir la documentation système",
+          "Collaborer avec l'équipe de développement sur les améliorations système"
+        ]
+      },
+      "paypal": {
+        "title": "Spécialiste Support Technique",
+        "company": "PayPal",
+        "period": "Mar 2021 - Déc 2022",
+        "description": "Fourni un support technique pour la plateforme de traitement de paiements PayPal.",
+        "highlights": [
+          "Résolu les problèmes de traitement de paiements",
+          "Supporté les marchands et clients",
+          "Maintenu les protocoles de sécurité",
+          "Obtenu la reconnaissance Top 120 Innovator"
+        ]
+      },
+      "aptar": {
+        "title": "Technicien Support IT",
+        "company": "Aptar",
+        "period": "Jan 2020 - Fév 2021",
+        "description": "Fourni un support IT pour les systèmes de fabrication et l'infrastructure de bureau.",
+        "highlights": [
+          "Supporté les systèmes logiciels de fabrication",
+          "Maintenu l'infrastructure IT de bureau",
+          "Fourni formation utilisateur",
+          "Implémenté des mesures de sécurité"
+        ]
+      },
+      "vasa": {
+        "title": "Support Technique",
+        "company": "VASA Corp",
+        "period": "Jan 2019 - Déc 2019",
+        "description": "Fourni un support technique pour les systèmes IT d'entreprise.",
+        "highlights": [
+          "Résolu les problèmes matériels et logiciels",
+          "Supporté l'infrastructure réseau",
+          "Fourni assistance utilisateur",
+          "Maintenu la documentation système"
+        ]
+      }
+    }
+  },
+  "skills": {
+    "title": "Compétences & Expertise",
+    "levels": {
+      "advanced": "Avancé",
+      "intermediate": "Intermédiaire",
+      "beginner": "Débutant"
+    },
+    "categories": {
+      "itSupport": {
+        "title": "Support IT",
+        "skills": [
+          "Support Technique",
+          "Dépannage",
+          "Administration Système",
+          "Support Client",
+          "ITSM",
+          "Help Desk"
+        ]
+      },
+      "webDevelopment": {
+        "title": "Développement Web",
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "React",
+          "Next.js",
+          "TypeScript"
+        ]
+      },
+      "operatingSystems": {
+        "title": "Systèmes d'Exploitation",
+        "skills": [
+          "Windows",
+          "macOS",
+          "Linux",
+          "Administration Système",
+          "Sécurité"
+        ]
+      },
+      "networking": {
+        "title": "Réseau",
+        "skills": [
+          "Configuration Réseau",
+          "TCP/IP",
+          "DNS",
+          "DHCP",
+          "VPN"
+        ]
+      }
+    }
+  },
+  "education": {
+    "title": "Formation",
+    "universidadMilenium": {
+      "institution": "Universidad Milenium",
+      "degree": "Licence en Technologies de l'Information",
+      "period": "Août 2015 - Mai 2019",
+      "gpa": "Moyenne: 3.8/4.0",
+      "courses": [
+        "Fondamentaux Informatiques",
+        "Gestion de Bases de Données",
+        "Développement Web",
+        "Administration Réseau",
+        "Analyse de Systèmes"
+      ]
+    }
+  },
+  "projects": {
+    "title": "Projets Mis en Avant",
+    "portfolio": {
+      "title": "Portfolio Personnel",
+      "description": "Portfolio moderne et responsive construit avec Next.js, TypeScript et Framer Motion. Comprend des animations interactives, effets 3D et performance optimale.",
+      "technologies": ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS", "Three.js"],
+      "liveUrl": "Démo Live",
+      "githubUrl": "GitHub"
+    },
+    "healthcare": {
+      "title": "Système de Support Santé",
+      "description": "Support technique et administration système pour logiciels de santé. Implémenté procédures de dépannage et programmes de formation utilisateur.",
+      "technologies": ["Logiciels de Santé", "Windows", "SQL", "Support Client", "ITSM"]
+    },
+    "payment": {
+      "title": "Plateforme de Traitement de Paiements",
+      "description": "Fourni support technique pour la plateforme de traitement de paiements PayPal. Résolu problèmes de paiement complexes et maintenu protocoles de sécurité.",
+      "technologies": ["Traitement de Paiements", "Sécurité", "Support Client", "ITSM"]
+    },
+    "manufacturing": {
+      "title": "Support IT Manufacturier",
+      "description": "Support IT pour systèmes de fabrication et infrastructure de bureau. Maintenu systèmes logiciels et fourni formation utilisateur.",
+      "technologies": ["Systèmes de Fabrication", "Windows", "Support Réseau", "Sécurité"]
+    }
+  },
+  "contact": {
+    "title": "Me Contacter",
+    "subtitle": "Je suis toujours intéressé par de nouvelles opportunités et collaborations. N'hésitez pas à me contacter !",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "send": "Envoyer Message",
+      "sending": "Envoi...",
+      "sent": "Message Envoyé !",
+      "error": "Réessayer"
+    },
+    "success": "Merci pour votre message ! Je vous répondrai dès que possible.",
+    "error": "Il y a eu une erreur lors de l'envoi de votre message. Veuillez réessayer ou me contacter directement à jodlouis.dev@gmail.com"
+  },
+  "footer": {
+    "copyright": "© 2024 Jod Louis. Tous droits réservés.",
+    "email": "Email",
+    "website": "Site Web"
+  },
+  "languages": {
+    "title": "Langues",
+    "english": "Anglais",
+    "french": "Français",
+    "spanish": "Espagnol",
+    "haitianCreole": "Créole Haïtien",
+    "fluent": "Courant",
+    "native": "Natif"
+  }
+}

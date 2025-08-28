@@ -6,10 +6,13 @@ import { resumeData } from '@/lib/data'
 import { Menu, X } from 'lucide-react'
 import { generateCVPDF } from './cv-generator'
 import { Logo } from './logo'
+import { LanguageSwitcher } from './language-switcher'
+import { useLanguage } from '@/contexts/language-context'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { currentLanguage, setLanguage, messages } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,12 +24,12 @@ export function Header() {
   }, [])
 
   const navItems = [
-    { href: '#about', label: 'About' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#education', label: 'Education' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' }
+    { href: '#about', label: messages.navigation?.about || 'About' },
+    { href: '#experience', label: messages.navigation?.experience || 'Experience' },
+    { href: '#skills', label: messages.navigation?.skills || 'Skills' },
+    { href: '#education', label: messages.navigation?.education || 'Education' },
+    { href: '#projects', label: messages.navigation?.projects || 'Projects' },
+    { href: '#contact', label: messages.navigation?.contact || 'Contact' }
   ]
 
   return (
@@ -54,12 +57,18 @@ export function Header() {
               </a>
             ))}
             
+            {/* Language Switcher */}
+            <LanguageSwitcher 
+              currentLanguage={currentLanguage}
+              onLanguageChange={setLanguage}
+            />
+            
             {/* CTA Button */}
             <button 
               className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
               onClick={generateCVPDF}
             >
-              Download CV
+              {messages.navigation?.downloadCV || 'Download CV'}
             </button>
           </nav>
 
