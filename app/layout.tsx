@@ -99,8 +99,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <CustomCursor />
-          <ScrollProgress />
           {children}
         </ThemeProvider>
       </body>
