@@ -5,7 +5,7 @@ export const resumeData: Resume = {
   "basics": {
     "name": "Jod Louis",
     "label": "IT Support & Web Developer",
-    "email": "ing.jod@gmail.com",
+                  "email": "jodlouis.dev@gmail.com",
     "phone": "(656) 200-7031",
     "url": "https://www.jodlouis.com",
     "location": {

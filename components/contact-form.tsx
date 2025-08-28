@@ -30,18 +30,18 @@ export function ContactForm() {
       // Try to use EmailJS if available
       const emailjs = await import('@emailjs/browser')
       
-      // Initialize EmailJS (you'll need to replace these with your actual IDs)
-      emailjs.init('YOUR_PUBLIC_KEY') // Replace with your EmailJS public key
+      // Initialize EmailJS with actual credentials
+      emailjs.init('d2flKGackRIKN71dF')
       
       const result = await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        'gmail_smtp', // EmailJS service ID
+        'template_gmail', // EmailJS template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: 'ing.jod@gmail.com' // Your email address
+          to_email: 'jodlouis.dev@gmail.com' // Your email address
         }
       )
       
@@ -196,9 +196,9 @@ export function ContactForm() {
           animate={{ opacity: 1, y: 0 }}
           className="p-4 bg-red-50 border border-red-200 rounded-lg"
         >
-          <p className="text-red-800 text-sm">
-            There was an error sending your message. Please try again or contact me directly at ing.jod@gmail.com
-          </p>
+                                <p className="text-red-800 text-sm">
+                        There was an error sending your message. Please try again or contact me directly at jodlouis.dev@gmail.com
+                      </p>
         </motion.div>
       )}
     </motion.form>

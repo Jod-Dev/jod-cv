@@ -49,19 +49,19 @@ const result = await emailjs.send(
 
 ### 6. Configuración completa
 ```typescript
-// Ejemplo con valores reales:
-emailjs.init('user_abc123def456')
-const result = await emailjs.send(
-  'service_xyz789',
-  'template_contact_form',
-  {
-    from_name: formData.name,
-    from_email: formData.email,
-    subject: formData.subject,
-    message: formData.message,
-    to_email: 'ing.jod@gmail.com'
-  }
-)
+            // Ejemplo con valores reales:
+            emailjs.init('d2flKGackRIKN71dF')
+            const result = await emailjs.send(
+              'gmail_smtp',
+              'template_gmail',
+              {
+                from_name: formData.name,
+                from_email: formData.email,
+                subject: formData.subject,
+                message: formData.message,
+                to_email: 'jodlouis.dev@gmail.com'
+              }
+            )
 ```
 
 ## Plan Gratuito
