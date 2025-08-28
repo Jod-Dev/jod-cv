@@ -54,14 +54,13 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
             <TranslatedText 
               translationKey="hero.greeting" 
               fallback="Hi, I'm"
-              className="text-foreground"
+              className="text-foreground block"
             />
-            <br />
-            <span className="text-primary">{resumeData.basics.name}</span>
+            <span className="text-primary block">{resumeData.basics.name}</span>
           </h1>
         </motion.div>
 
@@ -88,27 +87,35 @@ export function Hero() {
           <TranslatedP 
             translationKey="hero.summary" 
             fallback={resumeData.basics.summary}
-            className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4"
           />
         </motion.div>
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <TranslatedButton 
-            translationKey="hero.getInTouch"
-            fallback="Get In Touch"
-            className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-          />
-          <TranslatedButton 
-            translationKey="hero.viewWork"
-            fallback="View My Work"
-            className="px-8 py-4 border border-border text-foreground rounded-lg font-semibold hover:bg-muted transition-colors"
-          />
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors text-sm sm:text-base"
+          >
+            <TranslatedText 
+              translationKey="hero.getInTouch"
+              fallback="Get In Touch"
+            />
+          </button>
+          <button
+            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-border text-foreground rounded-lg font-semibold hover:bg-muted transition-colors text-sm sm:text-base"
+          >
+            <TranslatedText 
+              translationKey="hero.viewWork"
+              fallback="View My Work"
+            />
+          </button>
         </motion.div>
 
         {/* Scroll indicator */}

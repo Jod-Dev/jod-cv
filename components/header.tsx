@@ -128,38 +128,38 @@ export function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
-            <motion.div
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm lg:hidden z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-            
-            {/* Side Panel */}
-            <motion.div
-              className="fixed top-0 right-0 h-full w-80 bg-background border-l border-border lg:hidden z-50"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            >
+                         {/* Backdrop with Glass Effect */}
+             <motion.div
+               className="fixed inset-0 bg-black/30 backdrop-blur-md lg:hidden z-40"
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+               onClick={() => setIsMobileMenuOpen(false)}
+             />
+             
+             {/* Side Panel with Glass Effect */}
+             <motion.div
+               className="fixed top-0 right-0 h-full w-80 bg-background/80 backdrop-blur-xl border-l border-border/50 lg:hidden z-50 shadow-2xl"
+               initial={{ x: '100%' }}
+               animate={{ x: 0 }}
+               exit={{ x: '100%' }}
+               transition={{ type: "spring", damping: 25, stiffness: 200 }}
+             >
               <div className="flex flex-col h-full">
-                {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-border">
-                  <h2 className="text-lg font-semibold">Menu</h2>
-                  <button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
+                                 {/* Header */}
+                 <div className="flex items-center justify-between p-6 border-b border-border/50 bg-background/50 backdrop-blur-sm">
+                   <h2 className="text-lg font-semibold text-foreground">Menu</h2>
+                   <button
+                     onClick={() => setIsMobileMenuOpen(false)}
+                     className="p-2 text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted/50"
+                   >
+                     <X className="w-5 h-5" />
+                   </button>
+                 </div>
                 
-                {/* Navigation */}
-                <nav className="flex-1 p-6">
-                  <div className="space-y-6">
+                                 {/* Navigation */}
+                 <nav className="flex-1 p-6 bg-background/30 backdrop-blur-sm">
+                   <div className="space-y-6">
                     {/* Main Navigation */}
                     <div>
                       <h3 className="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wider">
