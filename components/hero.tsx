@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
 import { ChevronDown } from 'lucide-react'
+import { generateCVPDF } from './cv-generator'
 
 export function Hero() {
   return (

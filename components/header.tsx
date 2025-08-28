@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { resumeData } from '@/lib/data'
 import { Menu, X } from 'lucide-react'
+import { generateCVPDF } from './cv-generator'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -64,12 +65,7 @@ export function Header() {
             {/* CTA Button */}
             <button 
               className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/jod-louis-cv.pdf';
-                link.download = 'Jod-Louis-CV.pdf';
-                link.click();
-              }}
+              onClick={generateCVPDF}
             >
               Download CV
             </button>
