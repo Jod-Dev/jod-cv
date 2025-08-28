@@ -1,4 +1,4 @@
-# 🚀 JOD CV - El Portafolio Más Espectacular del Mundo
+# 🚀 JOD CV - The Most Spectacular Portfolio in the World
 
 ![Portfolio Preview](https://img.shields.io/badge/Status-Live%20✨-brightgreen)
 ![Next.js](https://img.shields.io/badge/Next.js-14.0.4-black)
@@ -6,188 +6,188 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-10.16.4-purple)
 
-## 🌟 Características Espectaculares
+## 🌟 Spectacular Features
 
-### ✨ Efectos Visuales Increíbles
-- **🎨 Partículas 3D Interactivas** - Fondo de estrellas animadas con Three.js
-- **🌈 Gradientes Animados** - Efectos de color que cambian dinámicamente
-- **💫 Partículas Flotantes** - Elementos que responden al movimiento del mouse
-- **🔥 Texto con Efecto Glow** - Tipografía con efectos de resplandor
-- **⚡ Botones Espectaculares** - Con efectos hover y partículas
-- **🎯 Cursor Personalizado** - Con trail de partículas y efectos magnéticos
+### ✨ Incredible Visual Effects
+- **🎨 Interactive 3D Particles** - Animated star background with Three.js
+- **🌈 Animated Gradients** - Dynamic color effects that change over time
+- **💫 Floating Particles** - Elements that respond to mouse movement
+- **🔥 Glow Text Effects** - Typography with stunning glow effects
+- **⚡ Spectacular Buttons** - With hover effects and particles
+- **🎯 Custom Cursor** - With particle trails and magnetic effects
 
-### 🎭 Animaciones Avanzadas
-- **📝 Efecto Typewriter** - Texto que se escribe automáticamente
-- **🔄 Transiciones Suaves** - Entre secciones con Framer Motion
-- **🎪 Elementos Flotantes** - Formas geométricas que rotan y flotan
-- **🌟 Efectos de Scroll** - Indicador de progreso con efectos glow
-- **🎨 Glassmorphism** - Efectos de cristal en la navegación
+### 🎭 Advanced Animations
+- **📝 Typewriter Effect** - Text that types automatically
+- **🔄 Smooth Transitions** - Between sections with Framer Motion
+- **🎪 Floating Elements** - Geometric shapes that rotate and float
+- **🌟 Scroll Effects** - Progress indicator with glow effects
+- **🎨 Glassmorphism** - Glass effects in navigation
 
-### 🛠️ Tecnologías de Vanguardia
-- **Next.js 14** - Framework React de última generación
-- **TypeScript** - Tipado estático para mayor robustez
-- **Framer Motion** - Animaciones fluidas y profesionales
-- **Three.js** - Gráficos 3D para efectos espectaculares
-- **Tailwind CSS** - Estilos modernos y responsivos
-- **React Spring** - Animaciones físicas realistas
+### 🛠️ Cutting-Edge Technologies
+- **Next.js 14** - Latest generation React framework
+- **TypeScript** - Static typing for greater robustness
+- **Framer Motion** - Fluid and professional animations
+- **Three.js** - 3D graphics for spectacular effects
+- **Tailwind CSS** - Modern and responsive styles
+- **React Spring** - Realistic physical animations
 
-## 🚀 Instalación y Uso
+## 🚀 Installation and Usage
 
-### Prerrequisitos
+### Prerequisites
 ```bash
 Node.js 18+ 
-npm o yarn
+npm or yarn
 ```
 
-### Instalación
+### Installation
 ```bash
-# Clonar el repositorio
+# Clone the repository
 git clone https://github.com/Jod-Dev/jod-cv.git
 
-# Entrar al directorio
+# Enter the directory
 cd jod-cv
 
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Ejecutar en desarrollo
+# Run in development
 npm run dev
 
-# Construir para producción
+# Build for production
 npm run build
 
-# Previsualizar build
+# Preview build
 npm run preview
 ```
 
-## 🎨 Componentes Espectaculares
+## 🎨 Spectacular Components
 
 ### 🌟 Hero Section
-- **Partículas 3D** con Three.js
-- **Texto animado** con efecto typewriter
-- **Botones interactivos** con efectos hover
-- **Formas flotantes** que rotan continuamente
-- **Gradientes animados** de fondo
+- **3D Particles** with Three.js
+- **Animated text** with typewriter effect
+- **Interactive buttons** with hover effects
+- **Floating shapes** that rotate continuously
+- **Animated gradients** background
 
-### 🎯 Navegación
-- **Glassmorphism** con backdrop blur
-- **Animaciones suaves** en hover
-- **Logo animado** con rotación continua
-- **Menú móvil** con transiciones fluidas
+### 🎯 Navigation
+- **Glassmorphism** with backdrop blur
+- **Smooth animations** on hover
+- **Animated logo** with continuous rotation
+- **Mobile menu** with fluid transitions
 
-### 🎪 Efectos Especiales
-- **Cursor personalizado** con trail de partículas
-- **Scroll progress** con efectos glow
-- **Partículas interactivas** que siguen el mouse
-- **Animaciones de entrada** escalonadas
+### 🎪 Special Effects
+- **Custom cursor** with particle trails
+- **Scroll progress** with glow effects
+- **Interactive particles** that follow the mouse
+- **Staggered entrance animations**
 
-## 🎭 Características de UX/UI
+## 🎭 UX/UI Features
 
-### 📱 Diseño Responsivo
-- **Mobile First** - Optimizado para móviles
-- **Tablet Ready** - Adaptado para tablets
-- **Desktop Perfect** - Experiencia completa en desktop
+### 📱 Responsive Design
+- **Mobile First** - Optimized for mobile devices
+- **Tablet Ready** - Adapted for tablets
+- **Desktop Perfect** - Complete experience on desktop
 
 ### ⚡ Performance
-- **Lazy Loading** - Carga optimizada de componentes
-- **Static Generation** - Páginas pre-renderizadas
-- **Image Optimization** - Imágenes optimizadas automáticamente
-- **Bundle Splitting** - Código dividido eficientemente
+- **Lazy Loading** - Optimized component loading
+- **Static Generation** - Pre-rendered pages
+- **Image Optimization** - Automatically optimized images
+- **Bundle Splitting** - Efficiently divided code
 
-### 🎨 Accesibilidad
-- **Semantic HTML** - Estructura semántica correcta
-- **Keyboard Navigation** - Navegación por teclado
-- **Screen Reader** - Compatible con lectores de pantalla
-- **Color Contrast** - Contraste de colores adecuado
+### 🎨 Accessibility
+- **Semantic HTML** - Correct semantic structure
+- **Keyboard Navigation** - Keyboard navigation support
+- **Screen Reader** - Compatible with screen readers
+- **Color Contrast** - Adequate color contrast
 
-## 🌈 Paleta de Colores
+## 🌈 Color Palette
 
 ```css
-/* Colores principales */
+/* Primary colors */
 --yellow-400: #fbbf24
 --orange-500: #f59e0b
 --red-500: #ef4444
 
-/* Gradientes */
+/* Gradients */
 background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)
 ```
 
 ## 🚀 Deployment
 
-### Cloudflare Pages (Recomendado)
-1. Conecta tu repositorio de GitHub
-2. Configuración:
+### Cloudflare Pages (Recommended)
+1. Connect your GitHub repository
+2. Configuration:
    - **Framework**: Next.js
    - **Build Command**: `npm run build`
    - **Build Output**: `out`
    - **Root Directory**: `/`
 
 ### Vercel
-1. Importa el proyecto desde GitHub
-2. Configuración automática detectada
-3. Deploy instantáneo
+1. Import project from GitHub
+2. Automatic configuration detected
+3. Instant deployment
 
 ### Netlify
-1. Conecta el repositorio
+1. Connect the repository
 2. Build command: `npm run build`
 3. Publish directory: `out`
 
-## 🎯 Características Destacadas
+## 🎯 Highlighted Features
 
-### ✨ Efectos Únicos
-- **Partículas que siguen el mouse**
-- **Texto con efectos de resplandor**
-- **Botones con partículas en hover**
-- **Formas geométricas flotantes**
-- **Gradientes animados de fondo**
+### ✨ Unique Effects
+- **Particles that follow the mouse**
+- **Text with glow effects**
+- **Buttons with particles on hover**
+- **Floating geometric shapes**
+- **Animated background gradients**
 
-### 🎪 Interactividad
-- **Cursor personalizado con trail**
-- **Elementos que responden al scroll**
-- **Animaciones basadas en scroll**
-- **Efectos hover magnéticos**
-- **Transiciones fluidas**
+### 🎪 Interactivity
+- **Custom cursor with trail**
+- **Elements that respond to scroll**
+- **Scroll-based animations**
+- **Magnetic hover effects**
+- **Fluid transitions**
 
 ### 🚀 Performance
-- **Carga ultra rápida**
-- **Animaciones optimizadas**
-- **Código dividido eficientemente**
-- **Imágenes optimizadas**
-- **SEO optimizado**
+- **Ultra-fast loading**
+- **Optimized animations**
+- **Efficiently divided code**
+- **Optimized images**
+- **SEO optimized**
 
-## 🤝 Contribuir
+## 🤝 Contributing
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Agradecimientos
+## 🙏 Acknowledgments
 
-- **Framer Motion** - Por las increíbles animaciones
-- **Three.js** - Por los efectos 3D espectaculares
-- **Tailwind CSS** - Por los estilos modernos
-- **Next.js** - Por el framework increíble
-- **React Spring** - Por las animaciones físicas
+- **Framer Motion** - For incredible animations
+- **Three.js** - For spectacular 3D effects
+- **Tailwind CSS** - For modern styles
+- **Next.js** - For the amazing framework
+- **React Spring** - For physical animations
 
 ---
 
-## 🌟 ¡El Portafolio Más Espectacular del Mundo!
+## 🌟 The Most Spectacular Portfolio in the World!
 
-Este portafolio no es solo un CV, es una **experiencia visual inmersiva** que combina las últimas tecnologías web con efectos visuales espectaculares. Cada elemento está cuidadosamente diseñado para crear una impresión memorable y profesional.
+This portfolio is not just a CV, it's an **immersive visual experience** that combines the latest web technologies with spectacular visual effects. Every element is carefully designed to create a memorable and professional impression.
 
-### 🎯 ¿Por qué es especial?
+### 🎯 Why is it special?
 
-- **🚀 Efectos 3D reales** con Three.js
-- **🎨 Animaciones fluidas** con Framer Motion
-- **💫 Interactividad total** con el usuario
-- **📱 Diseño responsive** perfecto
-- **⚡ Performance optimizada**
-- **🎪 Experiencia inmersiva**
+- **🚀 Real 3D effects** with Three.js
+- **🎨 Fluid animations** with Framer Motion
+- **💫 Total interactivity** with the user
+- **📱 Perfect responsive design**
+- **⚡ Optimized performance**
+- **🎪 Immersive experience**
 
-¡Disfruta explorando el portafolio más espectacular del mundo! 🌟
+Enjoy exploring the most spectacular portfolio in the world! 🌟
