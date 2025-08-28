@@ -58,12 +58,12 @@ export function LanguageSwitcher({
     <div className={`relative ${className}`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 hover:bg-muted transition-colors border border-border"
+        className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-muted/50 hover:bg-muted transition-colors border border-border"
+        aria-label={`Current language: ${currentLang.nativeName}`}
       >
-        <Globe className="w-4 h-4 text-muted-foreground" />
-        <span className="text-sm font-medium">{currentLang.flag}</span>
-        <span className="text-sm font-medium hidden sm:block">{currentLang.nativeName}</span>
-        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <span className="text-sm">{currentLang.flag}</span>
+        <span className="text-xs font-medium hidden md:block">{currentLang.code.toUpperCase()}</span>
+        <ChevronDown className={`w-3 h-3 text-muted-foreground transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -73,7 +73,7 @@ export function LanguageSwitcher({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full right-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg z-50"
+            className="absolute top-full right-0 mt-2 w-40 bg-background border border-border rounded-lg shadow-lg z-50"
           >
             <div className="py-2">
               {languages.map((language) => (
@@ -84,15 +84,12 @@ export function LanguageSwitcher({
                     trackLanguageChange(language.code)
                     setIsOpen(false)
                   }}
-                  className={`w-full flex items-center gap-3 px-4 py-2 text-left hover:bg-muted transition-colors ${
+                  className={`w-full flex items-center gap-2 px-3 py-1.5 text-left hover:bg-muted transition-colors ${
                     currentLanguage === language.code ? 'bg-primary/10 text-primary' : 'text-foreground'
                   }`}
                 >
-                  <span className="text-lg">{language.flag}</span>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-medium">{language.nativeName}</span>
-                    <span className="text-xs text-muted-foreground">{language.name}</span>
-                  </div>
+                  <span className="text-sm">{language.flag}</span>
+                  <span className="text-xs font-medium">{language.nativeName}</span>
                 </button>
               ))}
             </div>
