@@ -7,6 +7,7 @@
     "dev:local": "next dev",
     "build": "next build",
     "build:local": "next build",
+    "build:cloudflare": "next build && cp -r out/* .",
     "export": "next build",
     "start": "docker run -p 3000:3000 jod-portfolio:latest",
     "start:local": "next start",
