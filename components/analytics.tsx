@@ -2,6 +2,13 @@
 
 import { useEffect } from 'react'
 
+// Extend Window interface for gtag
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void
+  }
+}
+
 export function Analytics() {
   useEffect(() => {
     // Google Analytics 4
