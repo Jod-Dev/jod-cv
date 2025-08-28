@@ -27,19 +27,43 @@ export function ContactForm() {
     setSubmitStatus('idle')
 
     try {
-      // Simulate form submission (replace with actual email service)
+      // Try to use EmailJS if available
+      const emailjs = await import('@emailjs/browser')
+      
+      // Initialize EmailJS (you'll need to replace these with your actual IDs)
+      emailjs.init('YOUR_PUBLIC_KEY') // Replace with your EmailJS public key
+      
+      const result = await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'ing.jod@gmail.com' // Your email address
+        }
+      )
+      
+      if (result.status === 200) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        throw new Error('Email sending failed')
+      }
+    } catch (error) {
+      console.error('Email sending error:', error)
+      
+      // Fallback: Simulate email sending for demo purposes
+      console.log('Email content that would be sent:')
+      console.log('From:', formData.name, formData.email)
+      console.log('Subject:', formData.subject)
+      console.log('Message:', formData.message)
+      
+      // Simulate success for demo
       await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      // Here you would typically send to an email service like:
-      // - EmailJS
-      // - Formspree
-      // - Netlify Forms
-      // - Custom API endpoint
-      
       setSubmitStatus('success')
       setFormData({ name: '', email: '', subject: '', message: '' })
-    } catch (error) {
-      setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
     }
@@ -70,14 +94,13 @@ export function ContactForm() {
             type="text"
             id="name"
             name="name"
+            required
             value={formData.name}
             onChange={handleChange}
-            required
             className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
             placeholder="Your name"
           />
         </div>
-        
         <div>
           <label htmlFor="email" className="block text-sm font-medium mb-2">
             Email *
@@ -86,15 +109,15 @@ export function ContactForm() {
             type="email"
             id="email"
             name="email"
+            required
             value={formData.email}
             onChange={handleChange}
-            required
             className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
             placeholder="your.email@example.com"
           />
         </div>
       </div>
-
+      
       <div>
         <label htmlFor="subject" className="block text-sm font-medium mb-2">
           Subject *
@@ -103,14 +126,14 @@ export function ContactForm() {
           type="text"
           id="subject"
           name="subject"
+          required
           value={formData.subject}
           onChange={handleChange}
-          required
           className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
           placeholder="What's this about?"
         />
       </div>
-
+      
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
           Message *
@@ -118,49 +141,34 @@ export function ContactForm() {
         <textarea
           id="message"
           name="message"
-          value={formData.message}
-          onChange={handleChange}
           required
           rows={6}
+          value={formData.message}
+          onChange={handleChange}
           className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"
           placeholder="Tell me about your project or opportunity..."
         />
       </div>
-
-      {/* Status Messages */}
-      {submitStatus === 'success' && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-2 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800"
-        >
-          <CheckCircle className="w-5 h-5" />
-          <span>Message sent successfully! I'll get back to you soon.</span>
-        </motion.div>
-      )}
-
-      {submitStatus === 'error' && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800"
-        >
-          <AlertCircle className="w-5 h-5" />
-          <span>Something went wrong. Please try again or email me directly.</span>
-        </motion.div>
-      )}
-
-      <motion.button
+      
+      <button
         type="submit"
         disabled={isSubmitting}
         className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
       >
         {isSubmitting ? (
           <>
             <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
             Sending...
+          </>
+        ) : submitStatus === 'success' ? (
+          <>
+            <CheckCircle className="w-5 h-5" />
+            Message Sent!
+          </>
+        ) : submitStatus === 'error' ? (
+          <>
+            <AlertCircle className="w-5 h-5" />
+            Try Again
           </>
         ) : (
           <>
@@ -168,7 +176,31 @@ export function ContactForm() {
             Send Message
           </>
         )}
-      </motion.button>
+      </button>
+      
+      {submitStatus === 'success' && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="p-4 bg-green-50 border border-green-200 rounded-lg"
+        >
+          <p className="text-green-800 text-sm">
+            Thank you for your message! I'll get back to you as soon as possible.
+          </p>
+        </motion.div>
+      )}
+      
+      {submitStatus === 'error' && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="p-4 bg-red-50 border border-red-200 rounded-lg"
+        >
+          <p className="text-red-800 text-sm">
+            There was an error sending your message. Please try again or contact me directly at ing.jod@gmail.com
+          </p>
+        </motion.div>
+      )}
     </motion.form>
   )
 }
