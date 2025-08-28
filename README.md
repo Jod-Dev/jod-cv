@@ -37,9 +37,12 @@
 ```bash
 Node.js 18+ 
 npm or yarn
+# OR Docker (recommended for consistent builds)
 ```
 
 ### Installation
+
+#### Option 1: Traditional Installation
 ```bash
 # Clone the repository
 git clone https://github.com/Jod-Dev/jod-cv.git
@@ -58,6 +61,25 @@ npm run build
 
 # Preview build
 npm run preview
+```
+
+#### Option 2: Docker Installation (Recommended)
+```bash
+# Clone the repository
+git clone https://github.com/Jod-Dev/jod-cv.git
+
+# Enter the directory
+cd jod-cv
+
+# Build and run with Docker
+docker build -t jod-portfolio .
+docker run -p 3000:3000 jod-portfolio
+
+# Or use docker-compose for easier management
+docker-compose up
+
+# For development with hot reload
+docker-compose --profile dev up
 ```
 
 ## 🎨 Spectacular Components
@@ -114,7 +136,23 @@ background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)
 
 ## 🚀 Deployment
 
-### Cloudflare Pages (Recommended)
+### Docker Deployment (Recommended)
+```bash
+# Build the Docker image
+docker build -t jod-portfolio .
+
+# Run the container
+docker run -d -p 3000:3000 --name portfolio jod-portfolio
+
+# Or deploy to any container platform:
+# - AWS ECS
+# - Google Cloud Run
+# - Azure Container Instances
+# - DigitalOcean App Platform
+# - Heroku Container Registry
+```
+
+### Cloudflare Pages (Alternative)
 1. Connect your GitHub repository
 2. Configuration:
    - **Framework**: Next.js
