@@ -1,5 +1,6 @@
 name = "jod-cv"
 compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
 
 [build]
 command = "npm run build:cloudflare"
@@ -10,3 +11,6 @@ NODE_VERSION = "18"
 
 [site]
 bucket = "."
+
+[pages_build_output_dir]
+path = "."
