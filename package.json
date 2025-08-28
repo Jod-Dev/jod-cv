@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "./scripts/dev.sh",
     "dev:local": "next dev",
-    "build": "./scripts/build.sh",
+    "build": "next build",
     "build:local": "next build",
     "export": "next build",
     "start": "docker run -p 3000:3000 jod-portfolio:latest",
