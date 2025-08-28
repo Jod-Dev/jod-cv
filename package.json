@@ -3,14 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "./scripts/dev.sh",
+    "dev:local": "next dev",
+    "build": "./scripts/build.sh",
+    "build:local": "next build",
     "export": "next build",
-    "start": "next start",
+    "start": "docker run -p 3000:3000 jod-portfolio:latest",
+    "start:local": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
     "test": "jest",
-    "preview": "npx serve out"
+    "preview": "npx serve out",
+    "docker:dev": "docker-compose --profile dev up --build",
+    "docker:prod": "docker-compose up --build",
+    "docker:build": "docker build -t jod-portfolio .",
+    "docker:run": "docker run -p 3000:3000 jod-portfolio"
   },
   "dependencies": {
     "@react-three/drei": "^9.99.7",

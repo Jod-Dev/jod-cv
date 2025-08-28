@@ -30,19 +30,43 @@
 - **Three.js** - 3D graphics for spectacular effects
 - **Tailwind CSS** - Modern and responsive styles
 - **React Spring** - Realistic physical animations
+- **Docker** - Containerized deployment for consistency
 
 ## 🚀 Installation and Usage
 
 ### Prerequisites
 ```bash
+# Docker (Recommended - ensures consistent builds)
+Docker Desktop
+
+# OR Traditional (if Docker is not available)
 Node.js 18+ 
 npm or yarn
-# OR Docker (recommended for consistent builds)
 ```
 
 ### Installation
 
-#### Option 1: Traditional Installation
+#### 🐳 Docker Installation (Recommended)
+```bash
+# Clone the repository
+git clone https://github.com/Jod-Dev/jod-cv.git
+
+# Enter the directory
+cd jod-cv
+
+# Quick start with npm scripts (uses Docker automatically)
+npm run dev          # Development with hot reload
+npm run build        # Production build
+npm run start        # Run production build
+
+# Or use Docker commands directly
+docker-compose up                    # Production
+docker-compose --profile dev up      # Development
+docker build -t jod-portfolio .      # Build image
+docker run -p 3000:3000 jod-portfolio # Run container
+```
+
+#### 📦 Traditional Installation (Fallback)
 ```bash
 # Clone the repository
 git clone https://github.com/Jod-Dev/jod-cv.git
@@ -54,32 +78,13 @@ cd jod-cv
 npm install
 
 # Run in development
-npm run dev
+npm run dev:local
 
 # Build for production
-npm run build
+npm run build:local
 
 # Preview build
 npm run preview
-```
-
-#### Option 2: Docker Installation (Recommended)
-```bash
-# Clone the repository
-git clone https://github.com/Jod-Dev/jod-cv.git
-
-# Enter the directory
-cd jod-cv
-
-# Build and run with Docker
-docker build -t jod-portfolio .
-docker run -p 3000:3000 jod-portfolio
-
-# Or use docker-compose for easier management
-docker-compose up
-
-# For development with hot reload
-docker-compose --profile dev up
 ```
 
 ## 🎨 Spectacular Components
@@ -102,6 +107,31 @@ docker-compose --profile dev up
 - **Scroll progress** with glow effects
 - **Interactive particles** that follow the mouse
 - **Staggered entrance animations**
+
+## 🐳 Docker-First Development
+
+### ✅ Why Docker?
+- **🎯 Consistent Builds** - Same environment everywhere
+- **🚀 No Dependency Conflicts** - Isolated environments
+- **📦 Easy Deployment** - Works on any platform
+- **🔄 Reproducible** - Same results every time
+- **⚡ Fast Setup** - No local environment configuration needed
+
+### 🛠️ Docker Commands
+```bash
+# Development
+npm run dev              # Uses Docker automatically
+docker-compose --profile dev up
+
+# Production
+npm run build           # Build with Docker
+npm run start           # Run production container
+docker-compose up
+
+# Manual Docker commands
+docker build -t jod-portfolio .
+docker run -p 3000:3000 jod-portfolio
+```
 
 ## 🎭 UX/UI Features
 
