@@ -118,32 +118,96 @@ export function Hero() {
           </button>
         </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.button
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-background/80 backdrop-blur-xl border border-border/50 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group flex items-center justify-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+        {/* Creative Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          whileHover={{ 
-            scale: 1.1,
-            y: -2,
-            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-          }}
-          whileTap={{ scale: 0.95 }}
         >
-          <div className="relative w-full h-full flex items-center justify-center">
-            {/* 3D Background Effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full" />
-            <div className="absolute inset-0 bg-gradient-to-tl from-background/80 to-background/40 rounded-full" />
+          {/* Animated Text */}
+          <motion.p
+            className="text-sm text-muted-foreground font-medium"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <TranslatedText 
+              translationKey="hero.scrollHint"
+              fallback="Scroll to explore"
+            />
+          </motion.p>
+          
+          {/* Creative Scroll Button */}
+          <motion.button
+            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+            className="group relative w-16 h-16 flex items-center justify-center"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {/* Outer Ring */}
+            <motion.div
+              className="absolute inset-0 border-2 border-primary/30 rounded-full"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
             
-            {/* Icon with 3D effect */}
-            <ChevronDown className="w-6 h-6 text-primary relative z-10 group-hover:text-primary/80 transition-colors animate-bounce" />
+            {/* Inner Ring */}
+            <motion.div
+              className="absolute inset-2 border-2 border-primary/50 rounded-full"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            />
             
-            {/* Subtle glow effect */}
-            <div className="absolute inset-0 bg-primary/5 rounded-full blur-sm group-hover:bg-primary/10 transition-colors" />
-          </div>
-        </motion.button>
+            {/* Center Circle */}
+            <motion.div
+              className="w-8 h-8 bg-primary/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-primary/30"
+              whileHover={{ scale: 1.2 }}
+            >
+              {/* Animated Dots */}
+              <div className="flex flex-col gap-1">
+                <motion.div
+                  className="w-1 h-1 bg-primary rounded-full"
+                  animate={{ 
+                    y: [0, 4, 0],
+                    opacity: [0.3, 1, 0.3]
+                  }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity,
+                    delay: 0
+                  }}
+                />
+                <motion.div
+                  className="w-1 h-1 bg-primary rounded-full"
+                  animate={{ 
+                    y: [0, 4, 0],
+                    opacity: [0.3, 1, 0.3]
+                  }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity,
+                    delay: 0.2
+                  }}
+                />
+                <motion.div
+                  className="w-1 h-1 bg-primary rounded-full"
+                  animate={{ 
+                    y: [0, 4, 0],
+                    opacity: [0.3, 1, 0.3]
+                  }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity,
+                    delay: 0.4
+                  }}
+                />
+              </div>
+            </motion.div>
+            
+            {/* Glow Effect */}
+            <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/20 transition-colors" />
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   )

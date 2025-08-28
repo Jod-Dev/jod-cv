@@ -32,7 +32,7 @@ export function Logo({ size = 'md', showText = false, className = '', onClick }:
       whileTap={onClick ? { scale: 0.95 } : {}}
       style={{ cursor: onClick ? 'pointer' : 'default' }}
     >
-      {/* SVG Logo - Flat 3D Design */}
+      {/* SVG Logo - Simple Flat Design */}
       <div className={`${sizeClasses[size]} flex-shrink-0`}>
         <svg
           viewBox="0 0 100 100"
@@ -40,96 +40,43 @@ export function Logo({ size = 'md', showText = false, className = '', onClick }:
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full"
         >
-          {/* 3D Background Circle with Depth */}
-          <defs>
-            <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="hsl(var(--primary) / 0.15)" />
-              <stop offset="50%" stopColor="hsl(var(--primary) / 0.25)" />
-              <stop offset="100%" stopColor="hsl(var(--primary) / 0.1)" />
-            </linearGradient>
-            <linearGradient id="shadowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="hsl(var(--primary) / 0.3)" />
-              <stop offset="100%" stopColor="hsl(var(--primary) / 0.1)" />
-            </linearGradient>
-            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="2" dy="4" stdDeviation="3" floodColor="hsl(var(--primary) / 0.3)" />
-            </filter>
-          </defs>
-          
-          {/* Shadow Layer */}
-          <circle
-            cx="52"
-            cy="52"
-            r="45"
-            fill="url(#shadowGradient)"
-            opacity="0.6"
-          />
-          
-          {/* Main Background Circle */}
-          <circle
-            cx="50"
-            cy="50"
-            r="45"
-            fill="url(#bgGradient)"
-            stroke="hsl(var(--primary))"
+          {/* Simple Background */}
+          <rect
+            width="100"
+            height="100"
+            rx="20"
+            fill="hsl(var(--primary) / 0.1)"
+            stroke="hsl(var(--primary) / 0.3)"
             strokeWidth="2"
-            filter="url(#shadow)"
           />
           
-          {/* 3D Letter J with Depth */}
+          {/* Letter J - Simple and Clean */}
           <path
-            d="M30 25 L30 60 Q30 70 40 70 L50 70 Q60 70 60 60 L60 55"
+            d="M25 25 L25 65 Q25 75 35 75 L45 75 Q55 75 55 65 L55 60"
             stroke="hsl(var(--primary))"
-            strokeWidth="5"
+            strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
-            filter="url(#shadow)"
           />
           
-          {/* 3D Letter L with Depth */}
+          {/* Letter L - Simple and Clean */}
           <path
-            d="M70 25 L70 70 L75 70"
+            d="M65 25 L65 75 L70 75"
             stroke="hsl(var(--primary))"
-            strokeWidth="5"
+            strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
-            filter="url(#shadow)"
           />
           
-          {/* 3D Decorative Elements */}
+          {/* Simple Accent Dot */}
           <circle
-            cx="35"
-            cy="35"
-            r="3"
+            cx="30"
+            cy="30"
+            r="2"
             fill="hsl(var(--primary))"
-            opacity="0.8"
-            filter="url(#shadow)"
-          />
-          <circle
-            cx="65"
-            cy="35"
-            r="3"
-            fill="hsl(var(--primary))"
-            opacity="0.8"
-            filter="url(#shadow)"
-          />
-          
-          {/* Highlight Effect */}
-          <circle
-            cx="35"
-            cy="33"
-            r="1"
-            fill="hsl(var(--primary-foreground))"
-            opacity="0.9"
-          />
-          <circle
-            cx="65"
-            cy="33"
-            r="1"
-            fill="hsl(var(--primary-foreground))"
-            opacity="0.9"
+            opacity="0.6"
           />
         </svg>
       </div>
