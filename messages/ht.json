@@ -188,7 +188,7 @@
     "error": "Te gen yon erè lè w ap voye mesaj ou. Tanpri eseye ankò oswa kontakte m dirèkteman nan jodlouis.dev@gmail.com"
   },
   "footer": {
-    "copyright": "© 2024 Jod Louis. Tout dwa rezève.",
+    "copyright": "© {year} Jod Louis. Tout dwa rezève.",
     "email": "Imèl",
     "website": "Sit Entènèt"
   },

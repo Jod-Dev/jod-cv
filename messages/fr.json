@@ -22,11 +22,15 @@
     "location": "Basé à Tampa, FL",
     "experience": "Années d'Expérience",
     "projects": "Projets Réalisés",
-    "languages": "Langues Parlées"
+    "languages": "Langues Parlées",
+    "professionalSummary": "Résumé Professionnel",
+    "languages": "Langues"
   },
   "experience": {
     "title": "Expérience Professionnelle",
     "current": "Présent",
+    "keyResponsibilities": "Responsabilités Clés:",
+    "technologies": "Technologies:",
     "positions": {
       "automatedHealth": {
         "title": "Spécialiste Support IT",
@@ -132,6 +136,8 @@
   },
   "education": {
     "title": "Formation",
+    "keyCourses": "Cours Principaux:",
+    "gpa": "Moyenne:",
     "universidadMilenium": {
       "institution": "Universidad Milenium",
       "degree": "Licence en Technologies de l'Information",
@@ -148,6 +154,11 @@
   },
   "projects": {
     "title": "Projets Mis en Avant",
+    "subtitle": "Voici quelques-uns des projets et systèmes sur lesquels j'ai travaillé. Chacun représente un défi unique et une opportunité d'apprentissage.",
+    "featured": "Mis en Avant",
+    "projectPreview": "Aperçu du Projet",
+    "liveDemo": "Démo Live",
+    "viewCode": "Voir le Code",
     "portfolio": {
       "title": "Portfolio Personnel",
       "description": "Portfolio moderne et responsive construit avec Next.js, TypeScript et Framer Motion. Comprend des animations interactives, effets 3D et performance optimale.",
@@ -174,6 +185,13 @@
   "contact": {
     "title": "Me Contacter",
     "subtitle": "Je suis toujours intéressé par de nouvelles opportunités et collaborations. N'hésitez pas à me contacter !",
+    "contactInformation": "Informations de Contact",
+    "letsConnect": "Connectons-nous",
+    "availableMessage": "Je suis actuellement disponible pour de nouvelles opportunités et j'aimerais avoir de vos nouvelles. Que vous ayez une question ou que vous vouliez simplement dire bonjour, je ferai de mon mieux pour vous répondre !",
+    "namePlaceholder": "Votre nom",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "subjectPlaceholder": "De quoi s'agit-il ?",
+    "messagePlaceholder": "Parlez-moi de votre projet ou opportunité...",
     "form": {
       "name": "Nom",
       "email": "Email",
@@ -188,7 +206,7 @@
     "error": "Il y a eu une erreur lors de l'envoi de votre message. Veuillez réessayer ou me contacter directement à jodlouis.dev@gmail.com"
   },
   "footer": {
-    "copyright": "© 2024 Jod Louis. Tous droits réservés.",
+    "copyright": "© {year} Jod Louis. Tous droits réservés.",
     "email": "Email",
     "website": "Site Web"
   },
@@ -200,5 +218,41 @@
     "haitianCreole": "Créole Haïtien",
     "fluent": "Courant",
     "native": "Natif"
+  },
+  "awards": {
+    "title": "Prix & Reconnaissance",
+    "top120Innovator": {
+      "title": "Top 120 Innovateur",
+      "company": "PayPal",
+      "year": "2022",
+      "description": "Reconnu pour les contributions innovantes aux processus de support technique et aux améliorations de l'expérience client."
+    }
+  },
+  "volunteer": {
+    "title": "Travail Bénévole",
+    "iyf": {
+      "title": "Bénévole Support IT",
+      "organization": "IYF Orlando",
+      "period": "Jan 2020 - Présent",
+      "description": "Fournir support IT et assistance technique pour les programmes jeunesse et initiatives communautaires.",
+      "activities": [
+        "Maintenir l'équipement du laboratoire informatique",
+        "Fournir formation technique aux jeunes",
+        "Supporter les événements communautaires",
+        "Mentorer les étudiants en technologie"
+      ]
+    },
+    "church": {
+      "title": "Support Technique",
+      "organization": "Église Good News Orlando",
+      "period": "Juin 2019 - Présent",
+      "description": "Fournir support technique pour les services d'église et événements communautaires.",
+      "activities": [
+        "Supporter les systèmes audio/visuels",
+        "Maintenir le site web de l'église",
+        "Fournir assistance technique pour les événements",
+        "Former les bénévoles sur la technologie"
+      ]
+    }
   }
 }

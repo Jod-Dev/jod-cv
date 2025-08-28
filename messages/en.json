@@ -22,11 +22,15 @@
     "location": "Based in Tampa, FL",
     "experience": "Years of Experience",
     "projects": "Projects Completed",
-    "languages": "Languages Spoken"
+    "languages": "Languages Spoken",
+    "professionalSummary": "Professional Summary",
+    "languages": "Languages"
   },
   "experience": {
     "title": "Work Experience",
     "current": "Present",
+    "keyResponsibilities": "Key Responsibilities:",
+    "technologies": "Technologies:",
     "positions": {
       "automatedHealth": {
         "title": "IT Support Specialist",
@@ -132,6 +136,8 @@
   },
   "education": {
     "title": "Education",
+    "keyCourses": "Key Courses:",
+    "gpa": "GPA:",
     "universidadMilenium": {
       "institution": "Universidad Milenium",
       "degree": "Bachelor's Degree in Information Technology",
@@ -149,6 +155,10 @@
   "projects": {
     "title": "Projects & Work",
     "subtitle": "Here are some of the projects and systems I've worked on. Each represents a unique challenge and learning opportunity.",
+    "featured": "Featured",
+    "projectPreview": "Project Preview",
+    "liveDemo": "Live Demo",
+    "viewCode": "View Code",
     "portfolio": {
       "title": "Personal Portfolio",
       "description": "Modern, responsive portfolio built with Next.js, TypeScript, and Framer Motion. Features interactive animations, 3D effects, and optimal performance.",
@@ -175,6 +185,13 @@
   "contact": {
     "title": "Get In Touch",
     "subtitle": "I'm always interested in new opportunities and collaborations. Feel free to reach out!",
+    "contactInformation": "Contact Information",
+    "letsConnect": "Let's Connect",
+    "availableMessage": "I'm currently available for new opportunities and would love to hear from you. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your.email@example.com",
+    "subjectPlaceholder": "What's this about?",
+    "messagePlaceholder": "Tell me about your project or opportunity...",
     "form": {
       "name": "Name",
       "email": "Email",
@@ -189,7 +206,7 @@
     "error": "There was an error sending your message. Please try again or contact me directly at jodlouis.dev@gmail.com"
   },
   "footer": {
-    "copyright": "© 2024 Jod Louis. All rights reserved.",
+    "copyright": "© {year} Jod Louis. All rights reserved.",
     "email": "Email",
     "website": "Website"
   },
@@ -201,5 +218,41 @@
     "haitianCreole": "Haitian Creole",
     "fluent": "Fluent",
     "native": "Native"
+  },
+  "awards": {
+    "title": "Awards & Recognition",
+    "top120Innovator": {
+      "title": "Top 120 Innovator",
+      "company": "PayPal",
+      "year": "2022",
+      "description": "Recognized for innovative contributions to technical support processes and customer experience improvements."
+    }
+  },
+  "volunteer": {
+    "title": "Volunteer Work",
+    "iyf": {
+      "title": "IT Support Volunteer",
+      "organization": "IYF Orlando",
+      "period": "Jan 2020 - Present",
+      "description": "Provide IT support and technical assistance for youth programs and community initiatives.",
+      "activities": [
+        "Maintain computer lab equipment",
+        "Provide technical training to youth",
+        "Support community events",
+        "Mentor students in technology"
+      ]
+    },
+    "church": {
+      "title": "Technical Support",
+      "organization": "Good News Orlando Church",
+      "period": "Jun 2019 - Present",
+      "description": "Provide technical support for church services and community events.",
+      "activities": [
+        "Support audio/visual systems",
+        "Maintain church website",
+        "Provide technical assistance for events",
+        "Train volunteers on technology"
+      ]
+    }
   }
 }

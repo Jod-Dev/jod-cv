@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
+import { TranslatedText } from './translated-text'
 
 export function Footer() {
+  const currentYear = new Date().getFullYear()
+  
   return (
     <footer className="py-8 bg-background border-t border-border">
       <div className="container mx-auto px-4 max-w-7xl">
@@ -15,9 +18,12 @@ export function Footer() {
             viewport={{ once: true }}
             className="text-center md:text-left mb-4 md:mb-0"
           >
-            <p className="text-muted-foreground">
-              © 2024 {resumeData.basics.name}. All rights reserved.
-            </p>
+            <TranslatedText 
+              translationKey="footer.copyright"
+              fallback={`© ${currentYear} ${resumeData.basics.name}. All rights reserved.`}
+              className="text-muted-foreground"
+              variables={{ year: currentYear, name: resumeData.basics.name }}
+            />
           </motion.div>
           
           <motion.div

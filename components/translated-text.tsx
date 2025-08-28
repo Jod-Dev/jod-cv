@@ -7,19 +7,21 @@ interface TranslatedTextProps {
   fallback?: string
   className?: string
   children?: React.ReactNode
+  variables?: Record<string, any>
 }
 
 export function TranslatedText({ 
   translationKey, 
   fallback, 
   className = '',
-  children
+  children,
+  variables
 }: TranslatedTextProps) {
   const { t } = useTranslations()
   
   return (
     <span className={className}>
-      {children || t(translationKey, fallback)}
+      {children || t(translationKey, fallback, variables)}
     </span>
   )
 }

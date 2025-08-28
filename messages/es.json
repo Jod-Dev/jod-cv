@@ -22,11 +22,15 @@
     "location": "Basado en Tampa, FL",
     "experience": "Años de Experiencia",
     "projects": "Proyectos Completados",
-    "languages": "Idiomas Hablados"
+    "languages": "Idiomas Hablados",
+    "professionalSummary": "Resumen Profesional",
+    "languages": "Idiomas"
   },
   "experience": {
     "title": "Experiencia Laboral",
     "current": "Presente",
+    "keyResponsibilities": "Responsabilidades Clave:",
+    "technologies": "Tecnologías:",
     "positions": {
       "automatedHealth": {
         "title": "Especialista en Soporte IT",
@@ -132,6 +136,8 @@
   },
   "education": {
     "title": "Educación",
+    "keyCourses": "Cursos Principales:",
+    "gpa": "Promedio:",
     "universidadMilenium": {
       "institution": "Universidad Milenium",
       "degree": "Licenciatura en Tecnologías de la Información",
@@ -148,6 +154,11 @@
   },
   "projects": {
     "title": "Proyectos Destacados",
+    "subtitle": "Aquí están algunos de los proyectos y sistemas en los que he trabajado. Cada uno representa un desafío único y una oportunidad de aprendizaje.",
+    "featured": "Destacado",
+    "projectPreview": "Vista Previa del Proyecto",
+    "liveDemo": "Demo en Vivo",
+    "viewCode": "Ver Código",
     "portfolio": {
       "title": "Portfolio Personal",
       "description": "Portfolio moderno y responsive construido con Next.js, TypeScript y Framer Motion. Incluye animaciones interactivas, efectos 3D y rendimiento óptimo.",
@@ -188,7 +199,7 @@
     "error": "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o contáctame directamente a jodlouis.dev@gmail.com"
   },
   "footer": {
-    "copyright": "© 2024 Jod Louis. Todos los derechos reservados.",
+    "copyright": "© {year} Jod Louis. Todos los derechos reservados.",
     "email": "Email",
     "website": "Sitio Web"
   },
