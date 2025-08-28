@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { resumeData } from '@/lib/data'
 import { Mail, Phone, MapPin, Globe } from 'lucide-react'
+import { ContactForm } from './contact-form'
 
 export function Contact() {
   return (
@@ -102,14 +103,7 @@ export function Contact() {
               Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
             </p>
             
-            <motion.button
-              className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => window.open(`mailto:${resumeData.basics.email}`, '_blank')}
-            >
-              Send Email
-            </motion.button>
+            <ContactForm />
           </motion.div>
         </div>
       </div>

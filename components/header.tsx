@@ -23,6 +23,7 @@ export function Header() {
     { href: '#experience', label: 'Experience' },
     { href: '#skills', label: 'Skills' },
     { href: '#education', label: 'Education' },
+    { href: '#projects', label: 'Projects' },
     { href: '#contact', label: 'Contact' }
   ]
 
@@ -61,7 +62,15 @@ export function Header() {
             ))}
             
             {/* CTA Button */}
-            <button className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+            <button 
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/jod-louis-cv.pdf';
+                link.download = 'Jod-Louis-CV.pdf';
+                link.click();
+              }}
+            >
               Download CV
             </button>
           </nav>
