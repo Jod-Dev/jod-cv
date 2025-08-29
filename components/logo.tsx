@@ -32,7 +32,7 @@ export function Logo({ size = 'md', showText = false, className = '', onClick }:
       whileTap={onClick ? { scale: 0.95 } : {}}
       style={{ cursor: onClick ? 'pointer' : 'default' }}
     >
-      {/* SVG Logo - Elegant Initials */}
+      {/* SVG Logo - Clear and Legible */}
       <div className={`${sizeClasses[size]} flex-shrink-0 flex items-center justify-center`}>
         <svg
           viewBox="0 0 100 100"
@@ -40,43 +40,24 @@ export function Logo({ size = 'md', showText = false, className = '', onClick }:
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full"
         >
-          {/* Letter J - Elegant Style */}
+          {/* Letter J - Clear and Simple */}
           <path
-            d="M30 20 L30 70 Q30 80 40 80 L50 80 Q60 80 60 70 L60 65"
+            d="M25 20 L25 70 Q25 80 35 80 L45 80 Q55 80 55 70 L55 65"
             stroke="hsl(var(--primary))"
-            strokeWidth="5"
+            strokeWidth="8"
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
           />
           
-          {/* Letter L - Elegant Style */}
+          {/* Letter L - Clear and Simple */}
           <path
-            d="M70 20 L70 80 L80 80"
+            d="M65 20 L65 80 L75 80"
             stroke="hsl(var(--primary))"
-            strokeWidth="5"
+            strokeWidth="8"
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
-          />
-          
-          {/* Elegant Flourish */}
-          <path
-            d="M25 25 Q35 15 45 25"
-            stroke="hsl(var(--primary))"
-            strokeWidth="2"
-            strokeLinecap="round"
-            fill="none"
-            opacity="0.6"
-          />
-          
-          <path
-            d="M75 25 Q85 15 95 25"
-            stroke="hsl(var(--primary))"
-            strokeWidth="2"
-            strokeLinecap="round"
-            fill="none"
-            opacity="0.6"
           />
         </svg>
       </div>
